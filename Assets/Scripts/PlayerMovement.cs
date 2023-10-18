@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
+    private SpriteRenderer _spriteRenderer;
 
     private float _direction;
     [SerializeField] private float _speed;
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -45,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
 
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _jumpForce);
         }
+
+        FlipX();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -57,5 +61,17 @@ public class PlayerMovement : MonoBehaviour
     {
         _isGrounded = false;
         _jumpCount++;
+    }
+
+    private void FlipX()
+    {
+        if (_direction > 0)
+        {
+            _spriteRenderer.flipX = false;
+        }
+        else if (_direction < 0)
+        {
+            _spriteRenderer.flipX = true;
+        }
     }
 }
