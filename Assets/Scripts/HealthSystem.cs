@@ -5,9 +5,14 @@ using UnityEngine;
 public class HealthSystem : MonoBehaviour
 {
 
-    [SerializeField] private int _currentHealth; 
     [SerializeField] private int _maxHealth;
-    
+    private int _currentHealth;
+
+    void Start()
+    {
+        _currentHealth = _maxHealth;
+    }
+
     void Update()
     {
         if (_currentHealth <= 0)
