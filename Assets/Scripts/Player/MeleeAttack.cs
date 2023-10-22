@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeAtack : MonoBehaviour
+public class MeleeAttack : MonoBehaviour
 {
     [SerializeField] private Transform _attackPoint;
     [SerializeField] private float _attackRange;
@@ -18,13 +16,17 @@ public class MeleeAtack : MonoBehaviour
 
     private void Attack()
     {
+        //Animacja
+
+        //Sprawdzenie, czy przeciwnik jest w zasiêgu
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _enemyLayers);
 
-        foreach(Collider2D enemy in hitEnemies) 
+        foreach (Collider2D enemy in hitEnemies)
         {
-            HealthSystem enemyHealth = enemy.GetComponent<HealthSystem>();
+            Health enemyHealth = enemy.GetComponent<Health>();
             enemyHealth.loseHP();
         }
+        //Zadanie obra¿eñ, je¿eli tak
     }
 
     private void OnDrawGizmosSelected()

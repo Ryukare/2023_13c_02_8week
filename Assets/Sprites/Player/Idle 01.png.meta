@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a6170ab30e0d40a45867bca118c399c7
+guid: ce9c52261284996488c98f9ec8957ea6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 40
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,10 +113,10 @@ TextureImporter:
       name: Idle 01_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 1
-        width: 27
-        height: 25
+        x: 20
+        y: 8
+        width: 24
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84a464c232d6e97459255184142739b4
-      internalID: 471611155
+      spriteID: 00eb44e551222584e881d1dccf227223
+      internalID: -1548308753
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Idle 01_0: 471611155
+      Idle 01_0: -1548308753
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

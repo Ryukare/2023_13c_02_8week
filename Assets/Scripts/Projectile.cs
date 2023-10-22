@@ -13,10 +13,10 @@ public class Projectile : MonoBehaviour
     {
         _rb.velocity = -transform.right * _speed;
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other) 
     {
         if (other.CompareTag("Player")) {
-            HealthSystem player = other.gameObject.GetComponent<HealthSystem>();
+            Health player = other.gameObject.GetComponent<Health>();
             player.loseHP();
             Destroy(gameObject);
         }
