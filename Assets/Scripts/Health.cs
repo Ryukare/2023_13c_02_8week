@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthSystem : MonoBehaviour
+public class Health : MonoBehaviour
 {
 
     [SerializeField] private int _maxHealth;
@@ -23,6 +21,7 @@ public class HealthSystem : MonoBehaviour
 
     public void loseHP()
     {
+        Debug.Log(gameObject.name + " lost hp");
         _currentHealth--;
     }
 }

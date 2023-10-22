@@ -7,6 +7,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private SpriteRenderer _spriteRenderer;
 
+
+    [SerializeField] private Transform _attackPoint;
+
     private float _direction;
     [SerializeField] private float _speed;
 
@@ -68,10 +71,14 @@ public class PlayerMovement : MonoBehaviour
         if (_direction > 0)
         {
             _spriteRenderer.flipX = false;
+            _attackPoint.position = new Vector2(transform.position.x + GetComponent<CircleCollider2D>().radius,
+                _attackPoint.position.y);
         }
         else if (_direction < 0)
         {
             _spriteRenderer.flipX = true;
+            _attackPoint.position = new Vector2(transform.position.x - GetComponent<CircleCollider2D>().radius,
+                _attackPoint.position.y);
         }
     }
 }
