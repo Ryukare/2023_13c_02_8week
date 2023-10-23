@@ -3,6 +3,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float _speed;
+    [SerializeField] private int damageAmount = 2;
     private Rigidbody2D _rb;
 
     private void Awake()
@@ -17,11 +18,15 @@ public class Projectile : MonoBehaviour
     {
         if (other.CompareTag("Player")) {
             Health player = other.gameObject.GetComponent<Health>();
-            player.loseHP();
+            player.loseHP(damageAmount);
+            Destroy(gameObject);
+        }
+        else if (!other.CompareTag("Totem")) //jesli pociski walna w cokolwiek innego
+        {
             Destroy(gameObject);
         }
     }
-    private void OnBecameInvisible()
+    private void OnBecameInvisible() //jesli pociski wylatuja poza kamere
     {
         Destroy(gameObject);
     }

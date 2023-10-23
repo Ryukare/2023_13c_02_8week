@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -5,9 +6,9 @@ public class Totem : MonoBehaviour
 {
     [SerializeField] private GameObject _projectilePrefab;
     [SerializeField] private float _cooldown;
-    [SerializeField] private float _spawnOffsetY = -0.45f;
-    [SerializeField] private float _shootRangeX = 5.0f;
-    [SerializeField] private float _shootRangeY = 0.5f;
+    [SerializeField] private float _spawnOffsetY = -0.15f;
+    [SerializeField] private float _shootRangeX = 6.0f;
+    [SerializeField] private float _shootRangeY = 0.6f;
 
     private Transform player;
     private void Start()
@@ -24,14 +25,14 @@ public class Totem : MonoBehaviour
     }
     private IEnumerator TotemCoroutine()
     {
-        while (true)
+        while (true && player != null)
         {
             float playerXPosition = player.position.x;
             float playerYPosition = player.position.y;
             float totemXPosition = transform.position.x;
             bool playerOnLeft = playerXPosition < totemXPosition;
 
-            if (playerOnLeft && Mathf.Abs(playerYPosition - transform.position.y) <= _shootRangeY)
+            if (playerOnLeft && Math.Abs(playerYPosition - transform.position.y) <= _shootRangeY)
             {
                 float distanceToPlayer = Vector2.Distance(transform.position, player.position);
                 if (distanceToPlayer <= _shootRangeX)

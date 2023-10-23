@@ -29,7 +29,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Update()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, _playerPosition.position);
+        float distanceToPlayer = Vector2.Distance(transform.position, _playerPosition.position);
 
         if (distanceToPlayer <= _chaseRange)
         {

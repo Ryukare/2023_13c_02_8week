@@ -19,9 +19,14 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void loseHP()
+    public void loseHP(int amount)
     {
-        Debug.Log(gameObject.name + " lost hp");
-        _currentHealth--;
+        Debug.Log(gameObject.name + " lost " + amount + " HP");
+        _currentHealth -= amount;
+
+        if (_currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
