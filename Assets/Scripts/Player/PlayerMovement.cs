@@ -63,7 +63,6 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         _isGrounded = false;
-        _jumpCount++;
     }
 
     private void FlipX()
