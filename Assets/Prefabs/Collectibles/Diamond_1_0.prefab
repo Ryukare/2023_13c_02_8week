@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 166434226271141211}
   - component: {fileID: 6581666290090612245}
   - component: {fileID: 6587849614350053633}
+  - component: {fileID: 3466908568006821994}
   m_Layer: 0
   m_Name: Diamond_1_0
   m_TagString: Untagged
@@ -138,3 +139,24 @@ PolygonCollider2D:
       - {x: 0.2201333, y: -0.002470255}
       - {x: 0.21875, y: 0.09552884}
   m_UseDelaunayMesh: 0
+--- !u!95 &3466908568006821994
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6053130386775297559}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2429a234608759d4caf2d2eb99bd5d0e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
