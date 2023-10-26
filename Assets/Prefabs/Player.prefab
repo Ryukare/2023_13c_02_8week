@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 1760836606062086072}
   - component: {fileID: 2490793586450621262}
   - component: {fileID: 2039965237128068607}
-  - component: {fileID: 8220261974486339037}
+  - component: {fileID: 2410941448329436921}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -147,12 +147,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1037611388, guid: 1412400c2535e7d428d853dd45c11b42, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 78884ae808bd56d41b3df13e7ed10804, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.15625, y: 0.875}
+  m_Size: {x: 2, y: 1.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -266,7 +266,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   damageAmount: 5
---- !u!95 &8220261974486339037
+--- !u!95 &2410941448329436921
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -276,7 +276,7 @@ Animator:
   m_GameObject: {fileID: 9122659782945938780}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 096ac149a6277584ea0da145c771a479, type: 2}
+  m_Controller: {fileID: 9100000, guid: 97cd26d884e3fe14888e08ecde9a87c6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
