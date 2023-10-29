@@ -2,16 +2,23 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
+    [SerializeField] private EnemyConfig _enemyConfig;
     [SerializeField] private Transform _attackPoint;
-    [SerializeField] private float _attackRange;
+    private float _attackRange;
     
     [SerializeField] private Transform _playerPosition;
     [SerializeField] private LayerMask _playerLayer;
 
-    [SerializeField] private float _attackCooldown;
-    [SerializeField] private int damageAmount = 2;
+    private float _attackCooldown;
+    private int _damage;
     private float _lastAttackTime;
 
+    void Awake()
+    {
+        _attackRange = _enemyConfig.attackRange;
+        _damage = _enemyConfig.damage;
+        _attackCooldown = _enemyConfig.attackCooldown;
+    }
 
     void Update()
     {
@@ -31,7 +38,7 @@ public class EnemyAttack : MonoBehaviour
         Collider2D player = Physics2D.OverlapCircle(_attackPoint.position, _attackRange, _playerLayer);
 
         PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-        playerHealth.TakeDamage(damageAmount);
+        playerHealth.TakeDamage(_damage);
 
         _lastAttackTime = Time.time;
     }

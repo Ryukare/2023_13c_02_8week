@@ -33,8 +33,8 @@ public class CannonBallBehaviour : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && isFalling)
         {
-            Health playerHealth = collision.gameObject.GetComponent<Health>();
-            playerHealth.loseHP(damageAmount);
+            PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(damageAmount);
         }
         else
         {

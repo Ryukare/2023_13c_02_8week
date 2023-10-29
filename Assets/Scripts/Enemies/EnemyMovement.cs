@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehaviour : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
+    [SerializeField] private EnemyConfig _enemyConfig;
+
     private SpriteRenderer _spriteRenderer;
 
     [SerializeField] private Transform _attackPoint;
@@ -13,13 +13,17 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private Transform _pointB;
     [SerializeField] private Transform _playerPosition;
 
-    [SerializeField] private float _patrolSpeed;
-    [SerializeField] private float _chaseSpeed;
-    [SerializeField] private float _chaseRange;
+    private float _patrolSpeed;
+    private float _chaseSpeed;
+    private float _chaseRange;
 
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+
+        _patrolSpeed = _enemyConfig.patrolSpeed;
+        _chaseRange = _enemyConfig.chaseRange;
+        _chaseSpeed = _enemyConfig.chaseSpeed;
     }
 
     void Start()

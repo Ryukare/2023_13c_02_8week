@@ -30,8 +30,8 @@ public class PlayerMeleeAttack : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            Health enemyHealth = enemy.GetComponent<Health>();
-            enemyHealth.loseHP(_damage);
+            EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
+            enemyHealth.TakeDamage(_damage);
         }
     }
 

@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 4340223943333237880}
   - component: {fileID: 7733453364999048139}
   - component: {fileID: 8614752003174045647}
-  - component: {fileID: 6898160401165841828}
+  - component: {fileID: 717556404479814393}
   - component: {fileID: 4836606505283467762}
   - component: {fileID: 1388880388625973557}
   m_Layer: 7
@@ -155,7 +155,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.43
---- !u!114 &6898160401165841828
+--- !u!114 &717556404479814393
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,10 +164,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5813558522764448606}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ddea98da17ff504a8bca1d90541b46b, type: 3}
+  m_Script: {fileID: 11500000, guid: f87c4570a2c8a454cafea96a0225eeca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 3
+  _enemyConfig: {fileID: 11400000, guid: d27b6438e4fdf3e44a5d911332b129a5, type: 2}
 --- !u!114 &4836606505283467762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,13 +180,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 507fd7bc05434694f88b16515ba8420d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyConfig: {fileID: 11400000, guid: d27b6438e4fdf3e44a5d911332b129a5, type: 2}
   _attackPoint: {fileID: 2705064656156535572}
   _pointA: {fileID: 0}
   _pointB: {fileID: 0}
   _playerPosition: {fileID: 0}
-  _patrolSpeed: 0.7
-  _chaseSpeed: 1.4
-  _chaseRange: 0.9
 --- !u!114 &1388880388625973557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,10 +197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97e392f6906d352499bde7b9644ac4f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyConfig: {fileID: 11400000, guid: d27b6438e4fdf3e44a5d911332b129a5, type: 2}
   _attackPoint: {fileID: 2705064656156535572}
-  _attackRange: 0.4
   _playerPosition: {fileID: 0}
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  _attackCooldown: 2

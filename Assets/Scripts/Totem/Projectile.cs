@@ -17,8 +17,8 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) 
     {
         if (other.CompareTag("Player")) {
-            Health player = other.gameObject.GetComponent<Health>();
-            player.loseHP(damageAmount);
+            PlayerHealth player = other.gameObject.GetComponent<PlayerHealth>();
+            player.TakeDamage(damageAmount);
             Destroy(gameObject);
         }
         else if (!other.CompareTag("Totem")) //jesli pociski walna w cokolwiek innego

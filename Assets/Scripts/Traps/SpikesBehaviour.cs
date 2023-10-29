@@ -10,8 +10,8 @@ public class SpikesBehaviour : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Health playerHealth = collision.gameObject.GetComponent<Health>();
-            playerHealth.loseHP(damageAmount);
+            PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(damageAmount);
         }
     }
 }
