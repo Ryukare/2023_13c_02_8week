@@ -30,8 +30,8 @@ public class EnemyAttack : MonoBehaviour
     {
         Collider2D player = Physics2D.OverlapCircle(_attackPoint.position, _attackRange, _playerLayer);
 
-        Health playerHealth = player.GetComponent<Health>();
-        playerHealth.loseHP(damageAmount);
+        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+        playerHealth.TakeDamage(damageAmount);
 
         _lastAttackTime = Time.time;
     }
