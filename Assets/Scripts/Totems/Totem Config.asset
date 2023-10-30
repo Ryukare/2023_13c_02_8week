@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3a1e2a5ee8d1842b48e3852c3a8dfc, type: 3}
   m_Name: Totem Config
   m_EditorClassIdentifier: 
-  shootRangeX: 0
-  shootRangeY: 0
-  spawnOffsetY: 0
-  cooldown: 0
-  projectileSpeed: 0
-  projectileDamage: 0
+  shootRangeX: 5
+  shootRangeY: 0.5
+  spawnOffsetY: -0.1
+  cooldown: 1
