@@ -6,8 +6,8 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private Transform _attackPoint;
     private float _attackRange;
     
-    [SerializeField] private Transform _playerPosition;
     [SerializeField] private LayerMask _playerLayer;
+    private Transform _player;
 
     private float _attackCooldown;
     private int _damage;
@@ -20,11 +20,16 @@ public class EnemyAttack : MonoBehaviour
         _attackCooldown = _enemyConfig.attackCooldown;
     }
 
+    void Start()
+    {
+        _player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
     void Update()
     {
         if (Time.time - _lastAttackTime >= _attackCooldown)
         {
-            float distanceToPlayer = Vector2.Distance(_attackPoint.position, _playerPosition.position);
+            float distanceToPlayer = Vector2.Distance(_attackPoint.position, _player.position);
 
             if (distanceToPlayer <= _attackRange)
             {

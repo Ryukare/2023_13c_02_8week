@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Scriptable Objects/Player Config", fileName = "Player config")]
+[CreateAssetMenu(menuName = "Scriptable Objects/Player Config", fileName = "Player Config")]
 public class PlayerConfig : ScriptableObject
 {
     public int MaxHealth;

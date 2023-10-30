@@ -11,7 +11,7 @@ public class EnemyMovement : MonoBehaviour
     private Transform _currentDestination;
     [SerializeField] private Transform _pointA;
     [SerializeField] private Transform _pointB;
-    [SerializeField] private Transform _playerPosition;
+    private Transform _player;
 
     private float _patrolSpeed;
     private float _chaseSpeed;
@@ -29,11 +29,12 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         _currentDestination = _pointA.transform;
+        _player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, _playerPosition.position);
+        float distanceToPlayer = Vector2.Distance(transform.position, _player.position);
 
         if (distanceToPlayer <= _chaseRange)
         {
@@ -76,7 +77,7 @@ public class EnemyMovement : MonoBehaviour
     }
     private void Chase()
     {
-        if (_playerPosition.position.x > transform.position.x)
+        if (_player.position.x > transform.position.x)
         {
             _spriteRenderer.flipX = true;
             _attackPoint.position = new Vector2(transform.position.x + GetComponent<CircleCollider2D>().radius,
@@ -88,7 +89,7 @@ public class EnemyMovement : MonoBehaviour
                 _attackPoint.position.y);
         }
         transform.position =
-            Vector2.MoveTowards(transform.position, new Vector2(_playerPosition.position.x, transform.position.y),
+            Vector2.MoveTowards(transform.position, new Vector2(_player.position.x, transform.position.y),
             _chaseSpeed * Time.deltaTime);
     }
 
