@@ -236,6 +236,10 @@ PrefabInstance:
       value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 32919038880814925, guid: bb7d73ca8a199024cb0535becc77c065, type: 3}
+      propertyPath: _totemConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: e96a64baf19b0cc408644cb32f830d70, type: 2}
+    - target: {fileID: 32919038880814925, guid: bb7d73ca8a199024cb0535becc77c065, type: 3}
       propertyPath: _spawnOffsetY
       value: -0.15
       objectReference: {fileID: 0}
