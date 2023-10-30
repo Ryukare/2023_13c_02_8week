@@ -5,23 +5,15 @@ public class ProjectileBehaviour : MonoBehaviour
 
     [SerializeField] private ProjectileConfig _projectileConfig;
     private Rigidbody2D _rigidbody;
-    private SpriteRenderer _spriteRenderer;
+    private Vector2 _direction;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
     private void Start()
     {
-        if(_spriteRenderer.flipX)
-        {
-            _rigidbody.velocity = transform.right * _projectileConfig.speed;
-        }
-        else if (!_spriteRenderer.flipX)
-        {
-            _rigidbody.velocity = -transform.right * _projectileConfig.speed;
-        }
+        _rigidbody.velocity = _direction * _projectileConfig.speed;
     }
     private void OnTriggerEnter2D(Collider2D other) 
     {
@@ -34,6 +26,10 @@ public class ProjectileBehaviour : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    public void SetDirection(Vector2 direction)
+    {
+        _direction = direction;
     }
     private void OnBecameInvisible() //jesli pociski wylatuja poza kamere
     {

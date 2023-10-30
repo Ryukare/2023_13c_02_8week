@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TotemShooting : MonoBehaviour
@@ -32,41 +33,38 @@ public class TotemShooting : MonoBehaviour
     }
     private IEnumerator TotemCoroutine()
     {
-        while (_player != null)
+        while (true && _player != null)
         {
-            if (!_spriteRenderer.flipX)
+            float playerPositionX = _player.position.x;
+            float playerPositionY = _player.position.y;
+            float totemXPosition = transform.position.x;
+            bool playerOnLeft = playerPositionX < totemXPosition;
+
+            if (playerOnLeft && Math.Abs(playerPositionY - transform.position.y) <= _totemConfig.shootRangeY && !_spriteRenderer.flipX)
             {
-                bool playerOnLeft = _player.position.x < transform.position.x;
-                if (playerOnLeft && Math.Abs(_player.position.y - transform.position.y) 
-                    <= _totemConfig.shootRangeY)
-                {
-                    float distanceToPlayer = Vector2.Distance(transform.position, _player.position);
-                    if (distanceToPlayer <= _totemConfig.shootRangeX)
-                    {
-                        Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y 
-                            + _totemConfig.spawnOffsetY);
-                        _projectile.GetComponent<SpriteRenderer>().flipX = false;
-                        Instantiate(_projectile, spawnPosition, transform.rotation);
-                    }
-                }
+                Shoot(Vector2.left);
             }
-            else if (_spriteRenderer.flipX)
+            else if (!playerOnLeft && Math.Abs(playerPositionY - transform.position.y) <= _totemConfig.shootRangeY && _spriteRenderer.flipX)
             {
-                bool playerOnRight = _player.position.x > transform.position.x;
-                if (playerOnRight && Math.Abs(_player.position.y - transform.position.y) 
-                    <= _totemConfig.shootRangeY)
-                {
-                    float distanceToPlayer = Vector2.Distance(transform.position, _player.position);
-                    if (distanceToPlayer <= _totemConfig.shootRangeX)
-                    {
-                        Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y 
-                            + _totemConfig.spawnOffsetY);
-                        _projectile.GetComponent<SpriteRenderer>().flipX = true;
-                        Instantiate(_projectile, spawnPosition, transform.rotation);
-                    }
-                }
+                Shoot(Vector2.right);
             }
             yield return new WaitForSeconds(_totemConfig.cooldown);
+        }
+    }
+    private void Shoot(Vector2 direction)
+    {
+        float distanceToPlayer = Vector2.Distance(transform.position, _player.position);
+        if (distanceToPlayer <= _totemConfig.shootRangeX)
+        {
+            Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y + _totemConfig.spawnOffsetY);
+            GameObject projectile = Instantiate(_projectile, spawnPosition, transform.rotation);
+
+            // dostep do skryptu z projectile
+            ProjectileBehaviour projectileScript = projectile.GetComponent<ProjectileBehaviour>();
+            if (projectileScript != null)
+            {
+                projectileScript.SetDirection(direction);
+            }
         }
     }
 }
