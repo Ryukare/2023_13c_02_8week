@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 98aa22afc89430742b125226da7fbe39
+guid: 68ffbb86c730a284b80d4ab052fff57c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -53,7 +53,7 @@ TextureImporter:
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
+  spriteTessellationDetail: 0
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Diamond_2_0
+      name: 01_0
       rect:
         serializedVersion: 2
         x: 5
@@ -124,24 +124,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7821e95ca3d24c24ca097d0e6661a3d0
-      internalID: -1274713813
+      spriteID: dbe299f60b63fb941b9a7425dbf9ceff
+      internalID: 114922473
       vertices: []
       indices: 
       edges: []
       weights: []
-    outline: []
+    outline:
+    - - {x: -7, y: -6}
+      - {x: -7, y: 6}
+      - {x: 1, y: 6}
+      - {x: 7, y: 6}
+      - {x: 7, y: -6}
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Diamond_2_0: -1274713813
+      01_0: 114922473
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

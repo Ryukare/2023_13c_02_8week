@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e333d017cf0b6da47b51b03cf6cf5a28
+guid: 8ee60602843a65547976166788c7b31a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Diamond_3_0
+      name: 03_0
       rect:
         serializedVersion: 2
         x: 5
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1b10bc6d633f3b49a06a88ec8262f46
-      internalID: -561599522
+      spriteID: 778b9d71f9ad26849852da9a3c798c97
+      internalID: 298965354
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Diamond_3_0: -561599522
+      03_0: 298965354
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
