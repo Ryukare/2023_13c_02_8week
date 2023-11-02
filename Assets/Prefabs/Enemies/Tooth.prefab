@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5264838683479879764}
   - component: {fileID: 2409633673391998753}
   - component: {fileID: 8119336395786976053}
+  - component: {fileID: 6520435979387218455}
   m_Layer: 7
   m_Name: Tooth
   m_TagString: Enemy
@@ -78,12 +79,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -148583682, guid: 61d0e8e9f25f6264f9759fd41a4715a0, type: 3}
+  m_Sprite: {fileID: 1186752598, guid: d7ff24946797b5b4bbd2afacc5d91d6c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.75, y: 0.6875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -153,7 +154,6 @@ MonoBehaviour:
   _attackPoint: {fileID: 4766714424522579745}
   _pointA: {fileID: 0}
   _pointB: {fileID: 0}
-  _playerPosition: {fileID: 0}
 --- !u!114 &8119336395786976053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,10 +168,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyConfig: {fileID: 11400000, guid: 7d90fda0d84f89541a7b812e01856716, type: 2}
   _attackPoint: {fileID: 4766714424522579745}
-  _playerPosition: {fileID: 0}
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!95 &6520435979387218455
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015340574003863221}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ad6092025b4afb749b305dc44312d36d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3959830269350763990
 GameObject:
   m_ObjectHideFlags: 0
