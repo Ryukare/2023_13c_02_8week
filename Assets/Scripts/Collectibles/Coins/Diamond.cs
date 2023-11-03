@@ -6,7 +6,7 @@ public class Diamond : Collectible
     {
         PlayerScore playerScore = FindObjectOfType<PlayerScore>();
         playerScore.IncreaseScore(100);
-        playerScore.IncreaseDiamondScore();
+        playerScore.IncreaseDiamondsAmount();
         Destroy(gameObject);
     }
 }

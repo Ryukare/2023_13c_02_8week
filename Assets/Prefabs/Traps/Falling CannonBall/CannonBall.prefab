@@ -161,6 +161,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 062d9ef48e07def45bce7ac6695ceee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
-  _fallRangeY: 3
-  _destroyDelay: 2
+  _cannonBallConfig: {fileID: 11400000, guid: 68bde31f2998ece4c8b955c573ce7102, type: 2}

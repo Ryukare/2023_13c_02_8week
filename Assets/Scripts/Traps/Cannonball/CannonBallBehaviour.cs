@@ -6,9 +6,7 @@ public class CannonBallBehaviour : MonoBehaviour
 {
     private Rigidbody2D _rb;
     private bool isFalling = false;
-    [SerializeField] private int damageAmount = 10;
-    [SerializeField] private float _fallRangeY = 3f;
-    [SerializeField] private float _destroyDelay = 2f;
+    [SerializeField] private CannonBallConfig _cannonBallConfig;
 
     void Start()
     {
@@ -19,13 +17,13 @@ public class CannonBallBehaviour : MonoBehaviour
     {
         if (!isFalling)
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, _fallRangeY, LayerMask.GetMask("Player"));
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, _cannonBallConfig.fallRangeY, LayerMask.GetMask("Player"));
 
             if (hit.collider != null)
             {
                 isFalling = true;
                 _rb.bodyType = RigidbodyType2D.Dynamic;
-                Destroy(gameObject, _destroyDelay);
+                Destroy(gameObject, _cannonBallConfig.destroyDelay);
             }
         }
     }
@@ -34,13 +32,13 @@ public class CannonBallBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && isFalling)
         {
             PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
-            playerHealth.TakeDamage(damageAmount);
+            playerHealth.TakeDamage(_cannonBallConfig.damage);
         }
         else
         {
             isFalling = false;
         }
-        Destroy(gameObject, _destroyDelay);
+        Destroy(gameObject, _cannonBallConfig.destroyDelay);
     }
     private void OnBecameInvisible()
     {

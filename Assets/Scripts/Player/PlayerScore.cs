@@ -4,9 +4,9 @@ public class PlayerScore : MonoBehaviour
 {
     private int _score = 0;
     private int _goldCoinCount;
-    private int _goldCoinScore = 0;
+    private int _goldCoinAmount = 0;
     private int _diamondCount;
-    private int _diamondScore = 0;
+    private int _diamondAmount = 0;
 
     private void Start()
     {
@@ -19,14 +19,14 @@ public class PlayerScore : MonoBehaviour
         _score += score;
         Debug.Log("Score: " + _score);
     }
-    public void IncreaseGoldCoinsScore()
+    public void IncreaseGoldCoinsAmount()
     {
-        _goldCoinScore++;
-        Debug.Log("Gold Coins: " + _goldCoinScore + "/" + _goldCoinCount);
+        _goldCoinAmount++;
+        Debug.Log("Gold Coins: " + _goldCoinAmount + "/" + _goldCoinCount);
     }
-    public void IncreaseDiamondScore()
+    public void IncreaseDiamondsAmount()
     {
-        _diamondScore++;
-        Debug.Log("Diamonds: " + _diamondScore + "/" + _diamondCount);
+        _diamondAmount++;
+        Debug.Log("Diamonds: " + _diamondAmount + "/" + _diamondCount);
     }
 }
