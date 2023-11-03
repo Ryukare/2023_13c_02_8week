@@ -13,17 +13,19 @@ public class PlayerHealth : MonoBehaviour
 
     public void Heal(int heal)
     {
-        if (heal <= 0)
+        if (heal > 0)
         {
-            return;
+            if (_currentHealth + heal >= _playerConfig.MaxHealth)
+            {
+                _currentHealth = _playerConfig.MaxHealth;
+                Debug.Log("Player healed " + (_playerConfig.MaxHealth - _currentHealth) + " HP");
+            }
+            else
+            {
+                _currentHealth += heal;
+                Debug.Log("Player healed " + heal + " HP");
+            }
         }
-        if (_currentHealth + heal > _playerConfig.MaxHealth)
-        {
-            _currentHealth = _playerConfig.MaxHealth;
-            return;
-        }
-
-        _currentHealth += heal;
     }
 
     public void TakeDamage(int damage)
