@@ -9,4 +9,5 @@ public class RollingBarrelConfig : ScriptableObject
     public float destroyDelay;
     public float detectionRadius;
     public float rollSpeed;
+    public float spawnCooldown;
 }

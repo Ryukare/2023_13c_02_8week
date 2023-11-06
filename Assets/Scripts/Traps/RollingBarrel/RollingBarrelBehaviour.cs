@@ -2,22 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RollingBarrel : MonoBehaviour
+public class RollingBarrelBehaviour : MonoBehaviour
 {
-    [SerializeField] private RollingBarrelConfig _rollingBarrelConfig;
-    private Transform _player;
+    [SerializeField] private RollingBarrelConfig _barrelConfig;
+    private Rigidbody2D rb;
 
     private void Start()
     {
-        _player = GameObject.FindWithTag("Player").transform;
+        rb = GetComponent<Rigidbody2D>();
     }
-
-    private void Update()
+    public void StartRoll(Vector2 direction, float rollSpeed)
     {
-        if (Vector2.Distance(transform.position, _player.position) <= _rollingBarrelConfig.detectionRadius)
+        rb.velocity = direction * rollSpeed;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
         {
-            float rotation = _rollingBarrelConfig.rollSpeed * Time.deltaTime;
-            transform.Rotate(0, 0, rotation);
+            PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(_barrelConfig.damage);
+                Destroy(gameObject);
+            }
         }
+        Destroy(gameObject, _barrelConfig.destroyDelay);
+    }
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 }
