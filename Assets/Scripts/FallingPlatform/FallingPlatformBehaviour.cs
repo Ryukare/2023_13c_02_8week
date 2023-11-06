@@ -7,13 +7,18 @@ public class FallingPlatformBehaviour : MonoBehaviour
     [SerializeField] private FallingPlatformConfig _fallingPlatformConfig;
     private bool playerOnPlatform = false;
     private bool canDisappear = true;
+    private float disappearTime;
 
+    private void Start()
+    {
+        disappearTime = _fallingPlatformConfig.disappearTime;
+    }
     private void Update()
     {
         if (playerOnPlatform && canDisappear)
         {
-            _fallingPlatformConfig.disappearTime -= Time.deltaTime;
-            if (_fallingPlatformConfig.disappearTime <= 0)
+            disappearTime -= Time.deltaTime;
+            if (disappearTime <= 0)
             {
                 gameObject.SetActive(false);
                 canDisappear = false;
@@ -41,7 +46,7 @@ public class FallingPlatformBehaviour : MonoBehaviour
     private void ReappearPlatform()
     {
         gameObject.SetActive(true);
-        _fallingPlatformConfig.disappearTime = 3.0f;
+        disappearTime = 3.0f;
         canDisappear = true;
     }
 }
