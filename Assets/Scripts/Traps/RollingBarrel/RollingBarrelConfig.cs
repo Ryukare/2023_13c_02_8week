@@ -7,4 +7,6 @@ public class RollingBarrelConfig : ScriptableObject
 {
     public int damage;
     public float destroyDelay;
+    public float detectionRadius;
+    public float rollSpeed;
 }

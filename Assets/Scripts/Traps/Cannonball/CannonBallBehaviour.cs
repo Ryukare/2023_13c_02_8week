@@ -8,7 +8,7 @@ public class CannonBallBehaviour : MonoBehaviour
     private bool isFalling = false;
     [SerializeField] private CannonBallConfig _cannonBallConfig;
 
-    void Start()
+    void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
     }

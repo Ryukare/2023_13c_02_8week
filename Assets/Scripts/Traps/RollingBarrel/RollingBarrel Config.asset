@@ -12,3 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8c5597273fdf0a42804f0ad4242566c, type: 3}
   m_Name: RollingBarrel Config
   m_EditorClassIdentifier: 
+  damage: 5
+  destroyDelay: 3
+  detectionRadius: 0
+  rollSpeed: 0
