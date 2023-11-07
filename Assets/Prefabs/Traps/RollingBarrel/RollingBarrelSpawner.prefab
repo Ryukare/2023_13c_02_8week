@@ -98,4 +98,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _barrelConfig: {fileID: 11400000, guid: ef60f2ee70e987d4aae953b43459b12f, type: 2}
-  _barrelPrefab: {fileID: 7813256202323054768, guid: 5773190804a2cf94d9b811304963aff1, type: 3}
+  _barrelPrefab: {fileID: 6555075288690634731, guid: b1506058dcf623f4db6473abbb296a2b, type: 3}
