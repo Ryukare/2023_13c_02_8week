@@ -40,8 +40,4 @@ public class CannonBallBehaviour : MonoBehaviour
         }
         Destroy(gameObject, _cannonBallConfig.destroyDelay);
     }
-    private void OnBecameInvisible()
-    {
-        Destroy(gameObject);
-    }
 }

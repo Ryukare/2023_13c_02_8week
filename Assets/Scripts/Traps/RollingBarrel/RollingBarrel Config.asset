@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   destroyDelay: 5
-  detectionRadius: 3
+  detectionRadius: 5
   rollSpeed: 2
   spawnCooldown: 4
