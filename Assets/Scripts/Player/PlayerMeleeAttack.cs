@@ -5,14 +5,6 @@ public class PlayerMeleeAttack : MonoBehaviour
     [SerializeField] private PlayerConfig _playerConfig;
     [SerializeField] private LayerMask _enemyLayers;
     [SerializeField] private Transform _attackPoint;
-    private float _attackRange;
-    private int _damage;
-
-    void Awake()
-    {
-        _attackRange = _playerConfig.attackRange;
-        _damage = _playerConfig.damage;
-    }
 
     private void Update()
     {
@@ -26,17 +18,18 @@ public class PlayerMeleeAttack : MonoBehaviour
     {
         //Animacja ataku
 
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _enemyLayers);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_attackPoint.position, 
+            _playerConfig.attackRange, _enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies)
         {
             EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-            enemyHealth.TakeDamage(_damage);
+            enemyHealth.TakeDamage(_playerConfig.damage);
         }
     }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(_attackPoint.position, _attackRange);
+        Gizmos.DrawWireSphere(_attackPoint.position, _playerConfig.attackRange);
     }
 }

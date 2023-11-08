@@ -10,29 +10,26 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerConfig _playerConfig;
     [SerializeField] private Transform _attackPoint;
 
-    private float _direction;
-    private float _speed;
+    private float _xInput;
 
+    [SerializeField] private Transform _groundCheck;
+    [SerializeField] private LayerMask _groundMask;
     private bool _performJump;
     private bool _isGrounded;
-    private int _jumpCount = 0;
-    private float _jumpForce;
+    private int _jumps = 0;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
-
-        _speed = _playerConfig.speed;
-        _jumpForce = _playerConfig.jumpForce;
     }
 
     private void Update()
     {
-        _direction = Input.GetAxis("Horizontal");
+        _xInput = Input.GetAxis("Horizontal");
 
-        if (Input.GetButtonDown("Jump") && _jumpCount < 2)
+        if (Input.GetButtonDown("Jump") && (_isGrounded || _jumps == 1))
         {
             _performJump = true;
         }
@@ -40,51 +37,47 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidbody.velocity = new Vector2(_direction * _speed, _rigidbody.velocity.y);
-        _animator.SetFloat("XInputAbs", Mathf.Abs(_direction));
+        _rigidbody.velocity = new Vector2(_xInput * _playerConfig.speed, _rigidbody.velocity.y);
+        _animator.SetFloat("XInputAbs", Mathf.Abs(_xInput));
         FlipX();
+
+        _isGrounded = Physics2D
+            .OverlapCircle(_groundCheck.position, _playerConfig.groundCheckRadius, _groundMask);
+
+        if (_isGrounded)
+        {
+            _animator.SetBool("IsGrounded", true);
+            _jumps = 0;
+        }
 
         if (_performJump)
         {
-            if (!_isGrounded)
-            {
-                _jumpCount++;
-            }
-
             _performJump = false;
-            _isGrounded = false;
-
-            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _jumpForce);
+            _jumps++;
+            _rigidbody.velocity = Vector2.up * _playerConfig.jumpForce;
             _animator.SetBool("IsGrounded", false);
+            Debug.Log("Jumps " + _jumps);
         }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        _isGrounded = true;
-        _jumpCount = 0;
-        _animator.SetBool("IsGrounded", true);
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        _isGrounded = false;
-        _animator.SetBool("IsGrounded", false);
     }
 
     private void FlipX()
     {
-        if (_direction > 0)
+        if (_xInput > 0)
         {
             _spriteRenderer.flipX = false;
             _attackPoint.position = new Vector2(transform.position.x + GetComponent<CircleCollider2D>().radius,
                 _attackPoint.position.y);
         }
-        else if (_direction < 0)
+        else if (_xInput < 0)
         {
             _spriteRenderer.flipX = true;
             _attackPoint.position = new Vector2(transform.position.x - GetComponent<CircleCollider2D>().radius,
                 _attackPoint.position.y);
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(_groundCheck.position, _playerConfig.groundCheckRadius);
     }
 }

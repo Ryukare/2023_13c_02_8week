@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4577934356541022637}
   - component: {fileID: 4105684107980229279}
   - component: {fileID: 5791592512798723009}
-  - component: {fileID: 8596818980156307026}
+  - component: {fileID: 784617440167169997}
   - component: {fileID: 3690395326621920777}
   - component: {fileID: 2303282106905129628}
   - component: {fileID: 6033608936570680950}
@@ -113,7 +113,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!58 &8596818980156307026
+--- !u!58 &784617440167169997
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,9 +145,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.03569907}
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.40101296
 --- !u!50 &3690395326621920777
 Rigidbody2D:
   serializedVersion: 4

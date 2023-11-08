@@ -8,4 +8,5 @@ public class PlayerConfig : ScriptableObject
     public float speed;
     public float jumpForce;
     public float attackRange;
+    public float groundCheckRadius;
 }
