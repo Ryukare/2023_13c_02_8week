@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2797446396391985304}
   - component: {fileID: 3495811822052505612}
   - component: {fileID: 32919038880814925}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Totem
   m_TagString: Totem
   m_Icon: {fileID: 0}
