@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8005661599048553839}
   - component: {fileID: 2843594989891046838}
   - component: {fileID: 7541130153989223613}
+  - component: {fileID: 6889636475906762245}
   m_Layer: 0
   m_Name: Healing Potion
   m_TagString: Untagged
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1409495401, guid: 032fac7a7b2d04e45bf41c9b18bc50fa, type: 3}
+  m_Sprite: {fileID: -1050020724, guid: 2aeacb4eb25d4414a8771fd001e82157, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -144,3 +145,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healPotionConfig: {fileID: 11400000, guid: e50c455bb40a33343aee3b8828d4c6c2, type: 2}
+--- !u!95 &6889636475906762245
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7025165656400288003}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 15a376695bb0b0547883b0dcf8b43116, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
