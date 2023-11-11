@@ -143,8 +143,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84302855c02da0c4e934eb32d92e9ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _totemConfig: {fileID: 11400000, guid: e96a64baf19b0cc408644cb32f830d70, type: 2}
   _projectile: {fileID: 8882833382094134402, guid: b3775425a29b9644587b1e36552c79b7, type: 3}
-  _cooldown: 1
-  _spawnOffsetY: -0.1
-  _shootRangeX: 5
-  _shootRangeY: 0.5
