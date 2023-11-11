@@ -56,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
             _jumps++;
             _rigidbody.velocity = Vector2.up * _playerConfig.jumpForce;
             _animator.SetBool("IsGrounded", false);
-            Debug.Log("Jumps " + _jumps);
         }
     }
 
