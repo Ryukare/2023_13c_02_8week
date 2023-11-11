@@ -8747,7 +8747,7 @@ GameObject:
   - component: {fileID: 1829743412}
   - component: {fileID: 1829743414}
   - component: {fileID: 1829743413}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Level Two - Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
