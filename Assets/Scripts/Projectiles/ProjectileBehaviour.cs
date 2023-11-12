@@ -3,7 +3,7 @@ using UnityEngine;
 public class ProjectileBehaviour : MonoBehaviour
 {
 
-    [SerializeField] private ProjectileConfig _projectileConfig;
+    [SerializeField] private ProjectileConfig _config;
     private Rigidbody2D _rigidbody;
     private Vector2 _direction;
 
@@ -13,13 +13,12 @@ public class ProjectileBehaviour : MonoBehaviour
     }
     private void Start()
     {
-        _rigidbody.velocity = _direction * _projectileConfig.speed;
+        _rigidbody.velocity = _direction * _config.speed;
     }
     private void OnTriggerEnter2D(Collider2D other) 
     {
         if (other.CompareTag("Player")) {
-            PlayerHealth player = other.gameObject.GetComponent<PlayerHealth>();
-            player.TakeDamage(_projectileConfig.damage);
+            PlayerEventSystem.HitPlayer(_config.damage);
             Destroy(gameObject);
         }
         else if (!other.CompareTag("Totem")) //jesli pociski walna w cokolwiek innego

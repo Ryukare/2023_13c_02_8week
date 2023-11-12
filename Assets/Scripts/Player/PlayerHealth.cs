@@ -6,15 +6,17 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private PlayerConfig _playerConfig;
     private int _currentHealth;
 
-    void Awake()
+    private void Awake()
     {
         PlayerEventSystem.OnPlayerHeal += Heal;
+        PlayerEventSystem.OnPlayerHit += TakeDamage;
         _currentHealth = _playerConfig.MaxHealth;
     }
 
     public void OnDestroy()
     {
         PlayerEventSystem.OnPlayerHeal -= Heal;
+        PlayerEventSystem.OnPlayerHit -= TakeDamage;
     }
 
     public void Heal(int heal)
@@ -36,19 +38,18 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (damage <= 0)
+        if (damage > 0)
         {
-            return;
+            _currentHealth -= damage;
+
+            Debug.Log("Player took " + damage + " damage");
+            if (_currentHealth <= 0)
+            {
+                //Animacja œmierci
+                Destroy(gameObject);
+            }
+            //else
+            //Animacja hita
         }
-        _currentHealth -= damage;
-        
-        Debug.Log("Player took " + damage + " damage");
-        if (_currentHealth <= 0)
-        {
-            //Animacja œmierci
-            Destroy(gameObject);
-        }
-        //else
-        //Animacja hita
     }
 }

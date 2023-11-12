@@ -26,9 +26,9 @@ public class PlayerScore : MonoBehaviour
         PlayerEventSystem.OnValuableCollected -= IncreaseScore;
     }
 
-    public void IncreaseScore(string valuableName, int scoreIncrese)
+    public void IncreaseScore(string valuableName, int scoreIncrease)
     {
-        _score += scoreIncrese;
+        _score += scoreIncrease;
         Debug.Log($"Score: {_score}");
         if (valuableName == "Silver Coin")
         {
