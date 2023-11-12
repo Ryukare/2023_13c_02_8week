@@ -8,7 +8,13 @@ public class PlayerHealth : MonoBehaviour
 
     void Awake()
     {
+        PlayerEventSystem.OnPlayerHeal += Heal;
         _currentHealth = _playerConfig.MaxHealth;
+    }
+
+    public void OnDestroy()
+    {
+        PlayerEventSystem.OnPlayerHeal -= Heal;
     }
 
     public void Heal(int heal)
@@ -35,13 +41,14 @@ public class PlayerHealth : MonoBehaviour
             return;
         }
         _currentHealth -= damage;
-        //Animacja hita
+        
         Debug.Log("Player took " + damage + " damage");
-
         if (_currentHealth <= 0)
         {
             //Animacja œmierci
             Destroy(gameObject);
         }
+        //else
+        //Animacja hita
     }
 }
