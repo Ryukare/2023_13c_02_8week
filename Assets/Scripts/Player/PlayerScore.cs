@@ -6,7 +6,7 @@ public class PlayerScore : MonoBehaviour
     private int _silverCoinCount;
     private int _silverCoinAmount = 0;
     private int _goldCoinCount;
-    private int _goldCoinAmount = 0;
+    public int goldCoinAmount = 0;
     private int _diamondCount;
     private int _diamondAmount = 0;
 
@@ -37,8 +37,8 @@ public class PlayerScore : MonoBehaviour
         }
         else if (valuableName == "Gold Coin")
         {
-            _goldCoinAmount++;
-            Debug.Log($"Gold Coins: {_goldCoinAmount}/{_goldCoinCount}");
+            goldCoinAmount++;
+            Debug.Log($"Gold Coins: {goldCoinAmount}/{_goldCoinCount}");
         }
         else if (valuableName == "Diamond")
         {
