@@ -4,25 +4,43 @@ public class PlayerHealth : MonoBehaviour
 {
 
     [SerializeField] private PlayerConfig _playerConfig;
-    private int _currentHealth;
+    private int _currentHealthValue;
+
+    private int CurrentHealth
+    {
+        get => _currentHealthValue; set
+        {
+            _currentHealthValue = value;
+            GameEventSystem.UpdatePlayerHealth(value);
+        }
+    }
 
     void Awake()
     {
-        _currentHealth = _playerConfig.MaxHealth;
+        CurrentHealth = _playerConfig.MaxHealth;
+    }
+
+    private void Start()
+    {
+        GameEventSystem.onPlayerHeal += Heal;
+    }
+    private void OnDestroy()
+    {
+        GameEventSystem.onPlayerHeal -= Heal;
     }
 
     public void Heal(int heal)
     {
         if (heal > 0)
         {
-            if (_currentHealth + heal >= _playerConfig.MaxHealth)
+            if (CurrentHealth + heal >= _playerConfig.MaxHealth)
             {
-                _currentHealth = _playerConfig.MaxHealth;
-                Debug.Log("Player healed " + (_playerConfig.MaxHealth - _currentHealth) + " HP");
+                CurrentHealth = _playerConfig.MaxHealth;
+                Debug.Log("Player healed " + (_playerConfig.MaxHealth - CurrentHealth) + " HP");
             }
             else
             {
-                _currentHealth += heal;
+                CurrentHealth += heal;
                 Debug.Log("Player healed " + heal + " HP");
             }
         }
@@ -34,11 +52,11 @@ public class PlayerHealth : MonoBehaviour
         {
             return;
         }
-        _currentHealth -= damage;
+        CurrentHealth -= damage;
         //Animacja hita
         Debug.Log("Player took " + damage + " damage");
 
-        if (_currentHealth <= 0)
+        if (CurrentHealth <= 0)
         {
             //Animacja œmierci
             Destroy(gameObject);

@@ -4,5 +4,5 @@ using UnityEngine;
 public class PotionConfig : ScriptableObject
 {
     public string Name;
-    public int potionStrength;
+    public int healAmount;
 }

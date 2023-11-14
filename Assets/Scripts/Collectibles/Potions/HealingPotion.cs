@@ -8,8 +8,9 @@ public class HealingPotion : Collectible
     [SerializeField] private PotionConfig _healPotionConfig;
     protected override void Collect()
     {
-        PlayerHealth playerHealth = FindObjectOfType<PlayerHealth>();
-        playerHealth.Heal(_healPotionConfig.potionStrength);
+        //PlayerHealth playerHealth = FindObjectOfType<PlayerHealth>();
+        //playerHealth.Heal(_healPotionConfig.healAmount);
+        GameEventSystem.HealPlayer(_healPotionConfig.healAmount);
         Destroy(gameObject);
     }
 }
