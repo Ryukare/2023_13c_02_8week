@@ -2,23 +2,13 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    [SerializeField] private EnemyConfig _enemyConfig;
+    [SerializeField] private EnemyConfig _config;
     [SerializeField] private Transform _attackPoint;
-    private float _attackRange;
     
     [SerializeField] private LayerMask _playerLayer;
     private Transform _player;
 
-    private float _attackCooldown;
-    private int _damage;
     private float _lastAttackTime;
-
-    void Awake()
-    {
-        _attackRange = _enemyConfig.attackRange;
-        _damage = _enemyConfig.damage;
-        _attackCooldown = _enemyConfig.attackCooldown;
-    }
 
     void Start()
     {
@@ -27,11 +17,11 @@ public class EnemyAttack : MonoBehaviour
 
     void Update()
     {
-        if (Time.time - _lastAttackTime >= _attackCooldown)
+        if (Time.time - _lastAttackTime >= _config.attackCooldown)
         {
             float distanceToPlayer = Vector2.Distance(_attackPoint.position, _player.position);
 
-            if (distanceToPlayer <= _attackRange)
+            if (distanceToPlayer <= _config.attackRange)
             {
                 Attack();
             }
@@ -40,16 +30,18 @@ public class EnemyAttack : MonoBehaviour
 
     private void Attack()
     {
-        Collider2D player = Physics2D.OverlapCircle(_attackPoint.position, _attackRange, _playerLayer);
+        Collider2D player = Physics2D.OverlapCircle(_attackPoint.position, _config.attackRange, _playerLayer);
 
-        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-        playerHealth.TakeDamage(_damage);
+        if (player != null)
+        {
+            PlayerEventSystem.HitPlayer(_config.damage);
+        }
 
         _lastAttackTime = Time.time;
     }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(_attackPoint.position, _attackRange);
+        Gizmos.DrawWireSphere(_attackPoint.position, _config.attackRange);
     }
 }
