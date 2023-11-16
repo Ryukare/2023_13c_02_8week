@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97e392f6906d352499bde7b9644ac4f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyConfig: {fileID: 11400000, guid: 7d90fda0d84f89541a7b812e01856716, type: 2}
+  _config: {fileID: 11400000, guid: 7d90fda0d84f89541a7b812e01856716, type: 2}
   _attackPoint: {fileID: 4766714424522579745}
   _playerLayer:
     serializedVersion: 2
