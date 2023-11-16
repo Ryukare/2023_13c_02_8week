@@ -3,12 +3,12 @@ using UnityEngine;
 public class PlayerScore : MonoBehaviour
 {
     private int _score = 0;
-    private int _silverCoinCount;
-    private int _silverCoinAmount = 0;
-    private int _goldCoinCount;
-    public int goldCoinAmount = 0;
-    private int _diamondCount;
-    private int _diamondAmount = 0;
+    private int _allSilverCoinAmount;
+    private int _playerSilverCoinAmount = 0;
+    private int _allGoldCoinAmount;
+    private int _playerGoldCoinAmount = 0;
+    private int _allDiamondAmount;
+    private int _playerDiamondAmount = 0;
 
     private void Awake()
     {
@@ -16,14 +16,19 @@ public class PlayerScore : MonoBehaviour
     }
     private void Start()
     {
-        _silverCoinCount = GameObject.FindGameObjectsWithTag("SilverCoin").Length;
-        _goldCoinCount = GameObject.FindGameObjectsWithTag("GoldCoin").Length;
-        _diamondCount = GameObject.FindGameObjectsWithTag("Diamond").Length;
+        _allSilverCoinAmount = GameObject.FindGameObjectsWithTag("SilverCoin").Length;
+        _allGoldCoinAmount = GameObject.FindGameObjectsWithTag("GoldCoin").Length;
+        _allDiamondAmount = GameObject.FindGameObjectsWithTag("Diamond").Length;
     }
 
     public void OnDestroy()
     {
         PlayerEventSystem.OnValuableCollected -= IncreaseScore;
+    }
+
+    public int GetGoldCoins()
+    {
+        return _playerGoldCoinAmount;
     }
 
     public void IncreaseScore(string valuableName, int scoreIncrease)
@@ -32,18 +37,18 @@ public class PlayerScore : MonoBehaviour
         Debug.Log($"Score: {_score}");
         if (valuableName == "Silver Coin")
         {
-            _silverCoinAmount++;
-            Debug.Log($"Silver Coins: {_silverCoinAmount}/{_silverCoinCount}");
+            _playerSilverCoinAmount++;
+            Debug.Log($"Silver Coins: {_playerSilverCoinAmount}/{_allSilverCoinAmount}");
         }
         else if (valuableName == "Gold Coin")
         {
-            goldCoinAmount++;
-            Debug.Log($"Gold Coins: {goldCoinAmount}/{_goldCoinCount}");
+            _playerGoldCoinAmount++;
+            Debug.Log($"Gold Coins: {_playerGoldCoinAmount}/{_allGoldCoinAmount}");
         }
         else if (valuableName == "Diamond")
         {
-            _diamondAmount++;
-            Debug.Log($"Diamonds: {_diamondAmount}/{_diamondCount}");
+            _playerDiamondAmount++;
+            Debug.Log($"Diamonds: {_playerDiamondAmount}/{_allDiamondAmount}");
         }
     }
 }

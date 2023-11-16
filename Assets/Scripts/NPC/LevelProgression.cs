@@ -25,7 +25,7 @@ public class LevelProgression : MonoBehaviour
     {
         if (collision.name == "Player")
         {
-            if (collision.GetComponent<PlayerScore>().goldCoinAmount == _goldCoinsRequired)
+            if (collision.GetComponent<PlayerScore>().GetGoldCoins() == _goldCoinsRequired)
             {
                 _canProgress = true;
             }
