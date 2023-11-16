@@ -60,13 +60,11 @@ public class PlayerMovement : MonoBehaviour
             _jumps++;
             _rigidbody.velocity = Vector2.up * _playerConfig.jumpForce;
             _animator.SetBool("IsGrounded", false);
-            Debug.Log($"jumps: {_jumps}");
         }
     }
     public void OnCollisionExit2D(Collision2D collision)
     {
         _jumps++;
-        Debug.Log($"jumps: {_jumps}");
     }
 
     private void FlipX()

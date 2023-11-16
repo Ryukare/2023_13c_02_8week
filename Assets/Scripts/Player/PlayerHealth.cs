@@ -4,12 +4,26 @@ public class PlayerHealth : MonoBehaviour
 {
 
     [SerializeField] private PlayerConfig _playerConfig;
-    private int _currentHealth;
+
+    private int _currentHealthValue;
+    private int _currentHealth
+    {
+        get => _currentHealthValue;
+        set
+        {
+            _currentHealthValue = value;
+            PlayerEventSystem.UpdatePlayerHealth(value);
+        }
+    }
 
     private void Awake()
     {
         PlayerEventSystem.OnPlayerHeal += Heal;
         PlayerEventSystem.OnPlayerHit += TakeDamage;
+    }
+
+    private void Start()
+    {
         _currentHealth = _playerConfig.MaxHealth;
     }
 
@@ -26,12 +40,10 @@ public class PlayerHealth : MonoBehaviour
             if (_currentHealth + heal >= _playerConfig.MaxHealth)
             {
                 _currentHealth = _playerConfig.MaxHealth;
-                Debug.Log("Player healed " + (_playerConfig.MaxHealth - _currentHealth) + " HP");
             }
             else
             {
                 _currentHealth += heal;
-                Debug.Log("Player healed " + heal + " HP");
             }
         }
     }
@@ -41,8 +53,6 @@ public class PlayerHealth : MonoBehaviour
         if (damage > 0)
         {
             _currentHealth -= damage;
-
-            Debug.Log("Player took " + damage + " damage");
             if (_currentHealth <= 0)
             {
                 //Animacja œmierci

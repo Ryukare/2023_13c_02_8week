@@ -7,9 +7,14 @@ using UnityEngine;
 public static class PlayerEventSystem
 {
     public static event Action<int> OnPlayerHeal;
+    public static event Action<int> OnPlayerHealthUpdate;
     public static event Action<string, int> OnValuableCollected;
     public static event Action<int> OnPlayerHit;
 
+    public static void UpdatePlayerHealth(int currentHealthAmount)
+    {
+        OnPlayerHealthUpdate?.Invoke(currentHealthAmount);
+    }
     public static void HealPlayer(int healAmount)
     {
         OnPlayerHeal?.Invoke(healAmount);

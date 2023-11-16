@@ -5,18 +5,19 @@ namespace UI {
     public class HUDManager : MonoBehaviour {
         [SerializeField] private TMP_Text _playerHealth;
         [SerializeField] private TMP_Text _playerScore;
-        [SerializeField] private TMP_Text _coinsAmount;
+        [SerializeField] private TMP_Text _silverCoinsAmount;
+        [SerializeField] private TMP_Text _goldCoinsAmount;
         [SerializeField] private TMP_Text _diamondsAmount;
 
         private void Awake() {
-            //GameEventSystem.onPlayerHealthUpdate += UpdatePlayerHealth;
+            PlayerEventSystem.OnPlayerHealthUpdate += UpdatePlayerHealth;
             //GameEventSystem.onIncreaseScoreUpdate += UpdatePlayerScore;
             //GameEventSystem.onIncreaseCoinsUpdate += UpdateCoinsAmount;
             //GameEventSystem.onIncreaseDiamondsUpdate += UpdateDiamondsAmount;
         }
 
         private void OnDestroy() {
-            //GameEventSystem.onPlayerHealthUpdate -= UpdatePlayerHealth;
+            PlayerEventSystem.OnPlayerHealthUpdate -= UpdatePlayerHealth;
             //GameEventSystem.onIncreaseScoreUpdate -= UpdatePlayerScore;
             //GameEventSystem.onIncreaseCoinsUpdate -= UpdateCoinsAmount;
             //GameEventSystem.onIncreaseDiamondsUpdate -= UpdateDiamondsAmount;
@@ -29,9 +30,13 @@ namespace UI {
         {
             _playerScore.text = $"Score: {currentScore}";
         }
-        private void UpdateCoinsAmount(int currentCoins)
+        private void UpdateSilverCoinsAmount(int currentCoins)
         {
-            _coinsAmount.text = $"Coins: {currentCoins}";
+            _silverCoinsAmount.text = $"Coins: {currentCoins}";
+        }
+        private void UpdateGoldCoinsAmount(int currentCoins)
+        {
+            _goldCoinsAmount.text = $"Coins: {currentCoins}";
         }
         private void UpdateDiamondsAmount(int currentDiamonds)
         {
