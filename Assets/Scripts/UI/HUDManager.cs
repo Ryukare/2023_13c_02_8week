@@ -13,11 +13,11 @@ namespace UI {
         private int _levelDiamondAmount;
 
         private void Awake() {
-            PlayerEventSystem.OnPlayerHealthUpdate += UpdatePlayerHealth;
-            PlayerEventSystem.OnScoreUpdate += UpdateScore;
-            PlayerEventSystem.OnSilverCoinAmountUpdate += UpdateSilverCoinAmount;
-            PlayerEventSystem.OnGoldCoinAmountUpdate += UpdateGoldCoinAmount;
-            PlayerEventSystem.OnDiamondAmountUpdate += UpdateDiamondAmount;
+            PlayerHealthEventSystem.OnPlayerHealthUpdate += UpdatePlayerHealth;
+            ScoreEventSystem.OnScoreUpdate += UpdateScore;
+            ScoreEventSystem.OnSilverCoinAmountUpdate += UpdateSilverCoinAmount;
+            ScoreEventSystem.OnGoldCoinAmountUpdate += UpdateGoldCoinAmount;
+            ScoreEventSystem.OnDiamondAmountUpdate += UpdateDiamondAmount;
         }
 
         private void Start()
@@ -28,11 +28,11 @@ namespace UI {
         }
 
         private void OnDestroy() {
-            PlayerEventSystem.OnPlayerHealthUpdate -= UpdatePlayerHealth;
-            PlayerEventSystem.OnScoreUpdate -= UpdateScore;
-            PlayerEventSystem.OnSilverCoinAmountUpdate -= UpdateSilverCoinAmount;
-            PlayerEventSystem.OnGoldCoinAmountUpdate -= UpdateGoldCoinAmount;
-            PlayerEventSystem.OnDiamondAmountUpdate -= UpdateDiamondAmount;
+            PlayerHealthEventSystem.OnPlayerHealthUpdate -= UpdatePlayerHealth;
+            ScoreEventSystem.OnScoreUpdate -= UpdateScore;
+            ScoreEventSystem.OnSilverCoinAmountUpdate -= UpdateSilverCoinAmount;
+            ScoreEventSystem.OnGoldCoinAmountUpdate -= UpdateGoldCoinAmount;
+            ScoreEventSystem.OnDiamondAmountUpdate -= UpdateDiamondAmount;
         }
 
         private void UpdatePlayerHealth(int currentHealth) {

@@ -34,7 +34,7 @@ public class EnemyAttack : MonoBehaviour
 
         if (player != null)
         {
-            PlayerEventSystem.HitPlayer(_config.damage);
+            PlayerHealthEventSystem.HitPlayer(_config.damage);
         }
 
         _lastAttackTime = Time.time;

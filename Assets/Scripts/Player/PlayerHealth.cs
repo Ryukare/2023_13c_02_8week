@@ -12,14 +12,14 @@ public class PlayerHealth : MonoBehaviour
         set
         {
             _currentHealthValue = value;
-            PlayerEventSystem.UpdatePlayerHealth(value);
+            PlayerHealthEventSystem.UpdatePlayerHealth(value);
         }
     }
 
     private void Awake()
     {
-        PlayerEventSystem.OnPlayerHeal += Heal;
-        PlayerEventSystem.OnPlayerHit += TakeDamage;
+        PlayerHealthEventSystem.OnPlayerHeal += Heal;
+        PlayerHealthEventSystem.OnPlayerHit += TakeDamage;
     }
 
     private void Start()
@@ -29,8 +29,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void OnDestroy()
     {
-        PlayerEventSystem.OnPlayerHeal -= Heal;
-        PlayerEventSystem.OnPlayerHit -= TakeDamage;
+        PlayerHealthEventSystem.OnPlayerHeal -= Heal;
+        PlayerHealthEventSystem.OnPlayerHit -= TakeDamage;
     }
 
     public void Heal(int heal)

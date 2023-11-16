@@ -18,7 +18,7 @@ public class ProjectileBehaviour : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) 
     {
         if (other.CompareTag("Player")) {
-            PlayerEventSystem.HitPlayer(_config.damage);
+            PlayerHealthEventSystem.HitPlayer(_config.damage);
             Destroy(gameObject);
         }
         else if (!other.CompareTag("Totem")) //jesli pociski walna w cokolwiek innego

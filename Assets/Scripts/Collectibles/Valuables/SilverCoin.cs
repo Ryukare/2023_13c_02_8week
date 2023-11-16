@@ -5,8 +5,8 @@ public class SilverCoin : Collectible
     [SerializeField] private ValuableConfig _config;
     protected override void Collect()
     {
-        PlayerEventSystem.IncreaseScore(_config.scoreIncrease);
-        PlayerEventSystem.CollectSilverCoin();
+        ScoreEventSystem.IncreaseScore(_config.scoreIncrease);
+        ScoreEventSystem.CollectSilverCoin();
         Destroy(gameObject);
     }
 }

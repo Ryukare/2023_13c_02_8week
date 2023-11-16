@@ -5,8 +5,8 @@ public class Diamond : Collectible
     [SerializeField] private ValuableConfig _config;
     protected override void Collect()
     {
-        PlayerEventSystem.IncreaseScore(_config.scoreIncrease);
-        PlayerEventSystem.CollectDiamond();
+        ScoreEventSystem.IncreaseScore(_config.scoreIncrease);
+        ScoreEventSystem.CollectDiamond();
         Destroy(gameObject);
     }
 }

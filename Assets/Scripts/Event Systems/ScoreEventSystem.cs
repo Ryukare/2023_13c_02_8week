@@ -1,15 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Globalization;
-using UnityEngine;
 
-public static class PlayerEventSystem
+public static class ScoreEventSystem
 {
-    public static event Action<int> OnPlayerHealthUpdate;
-    public static event Action<int> OnPlayerHeal;
-    public static event Action<int> OnPlayerHit;
-
     public static event Action<int> OnScoreUpdate;
     public static event Action<int> OnScoreIncrease;
 
@@ -21,19 +13,6 @@ public static class PlayerEventSystem
 
     public static event Action<int> OnDiamondAmountUpdate;
     public static event Action OnDiamondCollected;
-
-    public static void UpdatePlayerHealth(int currentHealthAmount)
-    {
-        OnPlayerHealthUpdate?.Invoke(currentHealthAmount);
-    }
-    public static void HealPlayer(int healAmount)
-    {
-        OnPlayerHeal?.Invoke(healAmount);
-    }
-    public static void HitPlayer(int damage)
-    {
-        OnPlayerHit?.Invoke(damage);
-    }
 
     public static void UpdateScore(int currentScoreAmount)
     {
@@ -70,5 +49,4 @@ public static class PlayerEventSystem
     {
         OnDiamondCollected?.Invoke();
     }
-
 }

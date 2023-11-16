@@ -5,8 +5,8 @@ public class GoldCoin : Collectible
     [SerializeField] private ValuableConfig _config;
     protected override void Collect()
     {
-        PlayerEventSystem.IncreaseScore(_config.scoreIncrease);
-        PlayerEventSystem.CollectGoldCoin();
+        ScoreEventSystem.IncreaseScore(_config.scoreIncrease);
+        ScoreEventSystem.CollectGoldCoin();
         Destroy(gameObject);
     }
 }
