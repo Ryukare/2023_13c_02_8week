@@ -4,43 +4,55 @@ using UnityEngine;
 namespace UI {
     public class HUDManager : MonoBehaviour {
         [SerializeField] private TMP_Text _playerHealth;
-        [SerializeField] private TMP_Text _playerScore;
-        [SerializeField] private TMP_Text _silverCoinsAmount;
-        [SerializeField] private TMP_Text _goldCoinsAmount;
-        [SerializeField] private TMP_Text _diamondsAmount;
+        [SerializeField] private TMP_Text _score;
+        [SerializeField] private TMP_Text _silverCoins;
+        private int _levelSilverCoinAmount;
+        [SerializeField] private TMP_Text _goldCoins;
+        private int _levelGoldCoinAmount;
+        [SerializeField] private TMP_Text _diamonds;
+        private int _levelDiamondAmount;
 
         private void Awake() {
             PlayerEventSystem.OnPlayerHealthUpdate += UpdatePlayerHealth;
-            //GameEventSystem.onIncreaseScoreUpdate += UpdatePlayerScore;
-            //GameEventSystem.onIncreaseCoinsUpdate += UpdateCoinsAmount;
-            //GameEventSystem.onIncreaseDiamondsUpdate += UpdateDiamondsAmount;
+            PlayerEventSystem.OnScoreUpdate += UpdateScore;
+            PlayerEventSystem.OnSilverCoinAmountUpdate += UpdateSilverCoinAmount;
+            PlayerEventSystem.OnGoldCoinAmountUpdate += UpdateGoldCoinAmount;
+            PlayerEventSystem.OnDiamondAmountUpdate += UpdateDiamondAmount;
+        }
+
+        private void Start()
+        {
+            _levelSilverCoinAmount = GameObject.FindGameObjectsWithTag("SilverCoin").Length;
+            _levelGoldCoinAmount = GameObject.FindGameObjectsWithTag("GoldCoin").Length;
+            _levelDiamondAmount = GameObject.FindGameObjectsWithTag("Diamond").Length;
         }
 
         private void OnDestroy() {
             PlayerEventSystem.OnPlayerHealthUpdate -= UpdatePlayerHealth;
-            //GameEventSystem.onIncreaseScoreUpdate -= UpdatePlayerScore;
-            //GameEventSystem.onIncreaseCoinsUpdate -= UpdateCoinsAmount;
-            //GameEventSystem.onIncreaseDiamondsUpdate -= UpdateDiamondsAmount;
+            PlayerEventSystem.OnScoreUpdate -= UpdateScore;
+            PlayerEventSystem.OnSilverCoinAmountUpdate -= UpdateSilverCoinAmount;
+            PlayerEventSystem.OnGoldCoinAmountUpdate -= UpdateGoldCoinAmount;
+            PlayerEventSystem.OnDiamondAmountUpdate -= UpdateDiamondAmount;
         }
 
         private void UpdatePlayerHealth(int currentHealth) {
             _playerHealth.text = $"Health: {currentHealth}";
         }
-        private void UpdatePlayerScore(int currentScore)
+        private void UpdateScore(int currentScore)
         {
-            _playerScore.text = $"Score: {currentScore}";
+            _score.text = $"Score: {currentScore}";
         }
-        private void UpdateSilverCoinsAmount(int currentCoins)
+        private void UpdateSilverCoinAmount(int currentCoins)
         {
-            _silverCoinsAmount.text = $"Coins: {currentCoins}";
+            _silverCoins.text = $"{currentCoins}/{_levelSilverCoinAmount}";
         }
-        private void UpdateGoldCoinsAmount(int currentCoins)
+        private void UpdateGoldCoinAmount(int currentCoins)
         {
-            _goldCoinsAmount.text = $"Coins: {currentCoins}";
+            _goldCoins.text = $"{currentCoins}/{_levelGoldCoinAmount}";
         }
-        private void UpdateDiamondsAmount(int currentDiamonds)
+        private void UpdateDiamondAmount(int currentDiamonds)
         {
-            _diamondsAmount.text = $"Diamonds: {currentDiamonds}";
+            _diamonds.text = $"{currentDiamonds}/{_levelDiamondAmount}";
         }
     }
 }

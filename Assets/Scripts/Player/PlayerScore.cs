@@ -2,53 +2,90 @@ using UnityEngine;
 
 public class PlayerScore : MonoBehaviour
 {
-    private int _score = 0;
-    private int _allSilverCoinAmount;
-    private int _playerSilverCoinAmount = 0;
-    private int _allGoldCoinAmount;
-    private int _playerGoldCoinAmount = 0;
-    private int _allDiamondAmount;
-    private int _playerDiamondAmount = 0;
+    private int _scoreValue;
+    private int _score
+    {
+        get => _scoreValue;
+        set
+        {
+            _scoreValue = value;
+            PlayerEventSystem.UpdateScore(value);
+        }
+    }
+
+    private int _silverCoinAmountValue;
+    private int _silverCoinAmount
+    {
+        get => _silverCoinAmountValue;
+        set
+        {
+            _silverCoinAmountValue = value;
+            PlayerEventSystem.UpdateSilverCoinAmount(value);
+        }
+    }
+    private int _goldCoinAmountValue;
+    private int _goldCoinAmount
+    {
+        get => _goldCoinAmountValue;
+        set
+        {
+            _goldCoinAmountValue = value;
+            PlayerEventSystem.UpdateGoldCoinAmount(value);
+        }
+    }
+    private int _diamondAmountValue;
+    private int _diamondAmount
+    {
+        get => _diamondAmountValue;
+        set
+        {
+            _diamondAmountValue = value;
+            PlayerEventSystem.UpdateDiamondAmount(value);
+        }
+    }
 
     private void Awake()
     {
-        PlayerEventSystem.OnValuableCollected += IncreaseScore;
+        PlayerEventSystem.OnScoreIncrease += IncreaseScore;
+        PlayerEventSystem.OnSilverCoinCollected += IncreaseSilverCoinAmount;
+        PlayerEventSystem.OnGoldCoinCollected += IncreaseGoldCoinAmount;
+        PlayerEventSystem.OnDiamondCollected += IncreaseDiamondAmount;
     }
     private void Start()
     {
-        _allSilverCoinAmount = GameObject.FindGameObjectsWithTag("SilverCoin").Length;
-        _allGoldCoinAmount = GameObject.FindGameObjectsWithTag("GoldCoin").Length;
-        _allDiamondAmount = GameObject.FindGameObjectsWithTag("Diamond").Length;
+        _score = 0;
+        _silverCoinAmount = 0;
+        _goldCoinAmount = 0;
+        _diamondAmount = 0;
     }
 
     public void OnDestroy()
     {
-        PlayerEventSystem.OnValuableCollected -= IncreaseScore;
+        PlayerEventSystem.OnScoreIncrease -= IncreaseScore;
+        PlayerEventSystem.OnSilverCoinCollected -= IncreaseSilverCoinAmount;
+        PlayerEventSystem.OnGoldCoinCollected -= IncreaseGoldCoinAmount;
+        PlayerEventSystem.OnDiamondCollected -= IncreaseDiamondAmount;
     }
 
     public int GetGoldCoins()
     {
-        return _playerGoldCoinAmount;
+        return _goldCoinAmount;
     }
 
-    public void IncreaseScore(string valuableName, int scoreIncrease)
+    public void IncreaseScore(int scoreIncrease)
     {
         _score += scoreIncrease;
-        Debug.Log($"Score: {_score}");
-        if (valuableName == "Silver Coin")
-        {
-            _playerSilverCoinAmount++;
-            Debug.Log($"Silver Coins: {_playerSilverCoinAmount}/{_allSilverCoinAmount}");
-        }
-        else if (valuableName == "Gold Coin")
-        {
-            _playerGoldCoinAmount++;
-            Debug.Log($"Gold Coins: {_playerGoldCoinAmount}/{_allGoldCoinAmount}");
-        }
-        else if (valuableName == "Diamond")
-        {
-            _playerDiamondAmount++;
-            Debug.Log($"Diamonds: {_playerDiamondAmount}/{_allDiamondAmount}");
-        }
+    }
+    public void IncreaseSilverCoinAmount()
+    {
+        _silverCoinAmount++;
+    }
+    public void IncreaseGoldCoinAmount()
+    {
+        _goldCoinAmount++;
+    }
+    public void IncreaseDiamondAmount()
+    {
+        _diamondAmount++;
     }
 }
