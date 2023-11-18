@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 717556404479814393}
   - component: {fileID: 4836606505283467762}
   - component: {fileID: 1388880388625973557}
+  - component: {fileID: 7661934789561035633}
   m_Layer: 7
   m_Name: Patrick
   m_TagString: Enemy
@@ -109,12 +110,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 304516441, guid: 9b12a32f3a83fe84287f0f56edf4c923, type: 3}
+  m_Sprite: {fileID: -1178109105, guid: 9b12a32f3a83fe84287f0f56edf4c923, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.84375, y: 0.78125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -184,7 +185,6 @@ MonoBehaviour:
   _attackPoint: {fileID: 2705064656156535572}
   _pointA: {fileID: 0}
   _pointB: {fileID: 0}
-  _playerPosition: {fileID: 0}
 --- !u!114 &1388880388625973557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,9 +197,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97e392f6906d352499bde7b9644ac4f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyConfig: {fileID: 11400000, guid: d27b6438e4fdf3e44a5d911332b129a5, type: 2}
+  _config: {fileID: 11400000, guid: d27b6438e4fdf3e44a5d911332b129a5, type: 2}
   _attackPoint: {fileID: 2705064656156535572}
-  _playerPosition: {fileID: 0}
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!95 &7661934789561035633
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5813558522764448606}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a57d1d6691564e0468a13f206ad7686e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

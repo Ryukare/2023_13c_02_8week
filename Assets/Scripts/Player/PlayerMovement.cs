@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _xInput = Input.GetAxis("Horizontal");
 
-        if (Input.GetButtonDown("Jump") && (_isGrounded || _jumps == 1))
+        if (Input.GetButtonDown("Jump") && _jumps < 3)
         {
             _performJump = true;
         }
@@ -52,11 +52,19 @@ public class PlayerMovement : MonoBehaviour
 
         if (_performJump)
         {
+            if(!_isGrounded )
+            {
+                _jumps++;
+            }
             _performJump = false;
             _jumps++;
             _rigidbody.velocity = Vector2.up * _playerConfig.jumpForce;
             _animator.SetBool("IsGrounded", false);
         }
+    }
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        _jumps++;
     }
 
     private void FlipX()

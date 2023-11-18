@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootRangeX: 20
   shootRangeY: 0.5
-  spawnOffsetY: -0.15
+  spawnOffsetY: -0.28
   cooldown: 1
