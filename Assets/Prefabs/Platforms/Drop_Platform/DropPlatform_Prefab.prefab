@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 991675970912278050}
   - component: {fileID: 1579073837577941132}
   - component: {fileID: 7963974568539375128}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DropPlatform_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2621037723514298745}
   - component: {fileID: 3742534724121444698}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FallingPlatform_Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 6125268633371906229}
   - component: {fileID: 6501144563703182412}
   - component: {fileID: 2249905005764805572}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Layer1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
