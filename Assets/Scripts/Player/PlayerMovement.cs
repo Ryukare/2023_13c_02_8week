@@ -14,7 +14,10 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private LayerMask _groundMask;
+    [SerializeField] private LayerMask _enemyMask;
     private bool _performJump;
+    private bool _isTouchingGrass;
+    private bool _isOnEnemy;
     private bool _isGrounded;
     private int _jumps = 0;
 
@@ -41,8 +44,19 @@ public class PlayerMovement : MonoBehaviour
         _animator.SetFloat("XInputAbs", Mathf.Abs(_xInput));
         FlipX();
 
-        _isGrounded = Physics2D
+        _isTouchingGrass = Physics2D
             .OverlapCircle(_groundCheck.position, _playerConfig.groundCheckRadius, _groundMask);
+        _isOnEnemy = Physics2D
+            .OverlapCircle(_groundCheck.position, _playerConfig.groundCheckRadius, _enemyMask);
+
+        if (_isTouchingGrass || _isOnEnemy)
+        {
+            _isGrounded = true;
+        }
+        else
+        {
+            _isGrounded = false;
+        }
 
         if (_isGrounded)
         {
