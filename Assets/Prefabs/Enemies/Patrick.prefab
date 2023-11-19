@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 5200266867863180990}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.427, y: 0.016, z: 0.032482818}
+  m_LocalPosition: {x: -0.27, y: 0.016, z: 0.032482818}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41,11 +41,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4340223943333237880}
   - component: {fileID: 7733453364999048139}
-  - component: {fileID: 8614752003174045647}
+  - component: {fileID: 7911605699089548470}
   - component: {fileID: 8334966271132537130}
   - component: {fileID: 717556404479814393}
-  - component: {fileID: 4836606505283467762}
-  - component: {fileID: 1388880388625973557}
+  - component: {fileID: 1322820031892747841}
   - component: {fileID: 7661934789561035633}
   m_Layer: 7
   m_Name: Patrick
@@ -122,8 +121,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &8614752003174045647
-CircleCollider2D:
+--- !u!70 &7911605699089548470
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -155,8 +154,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.43
+  m_Size: {x: 0.54, y: 0.8}
+  m_Direction: 0
 --- !u!50 &8334966271132537130
 Rigidbody2D:
   serializedVersion: 4
@@ -197,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyConfig: {fileID: 11400000, guid: d27b6438e4fdf3e44a5d911332b129a5, type: 2}
---- !u!114 &4836606505283467762
+--- !u!114 &1322820031892747841
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,27 +205,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5813558522764448606}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 507fd7bc05434694f88b16515ba8420d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemyConfig: {fileID: 11400000, guid: d27b6438e4fdf3e44a5d911332b129a5, type: 2}
-  _attackPoint: {fileID: 2705064656156535572}
-  _pointA: {fileID: 0}
-  _pointB: {fileID: 0}
---- !u!114 &1388880388625973557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5813558522764448606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97e392f6906d352499bde7b9644ac4f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 787045d2d64547d42be23faa2371a09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _config: {fileID: 11400000, guid: d27b6438e4fdf3e44a5d911332b129a5, type: 2}
   _attackPoint: {fileID: 2705064656156535572}
+  _pointA: {fileID: 0}
+  _pointB: {fileID: 0}
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
