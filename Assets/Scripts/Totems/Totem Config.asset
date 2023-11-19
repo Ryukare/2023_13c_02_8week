@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Totem Config
   m_EditorClassIdentifier: 
   shootRangeX: 20
-  shootRangeY: 0.5
+  shootRangeY: 4
   spawnOffsetY: -0.28
   cooldown: 1
