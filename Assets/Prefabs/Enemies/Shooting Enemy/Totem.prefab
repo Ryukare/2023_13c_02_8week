@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 734295580586894502}
   - component: {fileID: 2797446396391985304}
   - component: {fileID: 3495811822052505612}
+  - component: {fileID: 2064209687506341269}
   - component: {fileID: 32919038880814925}
   m_Layer: 8
   m_Name: Totem
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -37764401
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -1966503890, guid: 4a4de84439e90ca46806dc4263097c43, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -131,6 +132,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.48022085, y: 0.5750525}
   m_EdgeRadius: 0
+--- !u!95 &2064209687506341269
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3108767443031580066}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 844d917a9ffab154b9dcfe5cd8cc6ced, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &32919038880814925
 MonoBehaviour:
   m_ObjectHideFlags: 0
