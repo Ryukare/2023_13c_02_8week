@@ -168,8 +168,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 810879397
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 78884ae808bd56d41b3df13e7ed10804, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -325,7 +325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2776b07473fed645a8951c4dc0a738d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goldCoinAmount: 0
 --- !u!1 &4677915094907836899
 GameObject:
   m_ObjectHideFlags: 0

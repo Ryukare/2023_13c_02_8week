@@ -49,6 +49,9 @@ TagManager:
   - name: Background
     uniqueID: 879585949
     locked: 0
+  - name: Spikes
+    uniqueID: 2879769317
+    locked: 0
   - name: Ground
     uniqueID: 3409203557
     locked: 0
