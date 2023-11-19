@@ -184,7 +184,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 1.6427579
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -285,12 +285,20 @@ PrefabInstance:
       value: Tooth
       objectReference: {fileID: 0}
     - target: {fileID: 4273203806906969654, guid: 16f2e51e728af7547b5acace91496cda, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9913587
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273203806906969654, guid: 16f2e51e728af7547b5acace91496cda, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0677
+      objectReference: {fileID: 0}
+    - target: {fileID: 4273203806906969654, guid: 16f2e51e728af7547b5acace91496cda, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.0658405
+      value: -3.0673
       objectReference: {fileID: 0}
     - target: {fileID: 4273203806906969654, guid: 16f2e51e728af7547b5acace91496cda, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.15675116
+      value: 0.1334
       objectReference: {fileID: 0}
     - target: {fileID: 4273203806906969654, guid: 16f2e51e728af7547b5acace91496cda, type: 3}
       propertyPath: m_LocalPosition.z
