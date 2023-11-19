@@ -6,6 +6,7 @@ public class EnemyBehaviour : MonoBehaviour
 {
     [SerializeField] private EnemyConfig _config;
     private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
 
     [SerializeField] private Transform _attackPoint;
     private float _lastAttackTime;
@@ -20,6 +21,7 @@ public class EnemyBehaviour : MonoBehaviour
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
     }
     void Start()
     {
@@ -33,11 +35,13 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (distanceToPlayer <= _config.chaseRange)
         {
+            _animator.SetBool("PlayerSpotted", true);
             distanceToPlayer = Vector2.Distance(_attackPoint.position, _player.position);
             if (distanceToPlayer <= _config.attackRange)
             {
                 if (Time.time - _lastAttackTime >= _config.attackCooldown)
                 {
+                    _animator.SetTrigger("Attack");
                     Attack();
                 }
             }
@@ -48,6 +52,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
         else
         {
+            _animator.SetBool("PlayerSpotted", false);
             Patrol();
         }
     }

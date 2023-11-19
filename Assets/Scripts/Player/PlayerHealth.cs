@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -58,7 +59,7 @@ public class PlayerHealth : MonoBehaviour
             if (_currentHealth <= 0)
             {
                 _animator.SetTrigger("DeathHit");
-                Destroy(gameObject);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
             else
             {
