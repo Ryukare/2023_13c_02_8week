@@ -74,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
             _jumps++;
             _rigidbody.velocity = Vector2.up * _playerConfig.jumpForce;
             _animator.SetBool("IsGrounded", false);
+            _animator.SetTrigger("Jump");
         }
     }
     public void OnCollisionExit2D(Collision2D collision)
@@ -86,13 +87,13 @@ public class PlayerMovement : MonoBehaviour
         if (_xInput > 0)
         {
             _spriteRenderer.flipX = false;
-            _attackPoint.position = new Vector2(transform.position.x + GetComponent<CircleCollider2D>().radius,
+            _attackPoint.position = new Vector2(transform.position.x + GetComponent<CapsuleCollider2D>().size.x,
                 _attackPoint.position.y);
         }
         else if (_xInput < 0)
         {
             _spriteRenderer.flipX = true;
-            _attackPoint.position = new Vector2(transform.position.x - GetComponent<CircleCollider2D>().radius,
+            _attackPoint.position = new Vector2(transform.position.x - GetComponent<CapsuleCollider2D>().size.x,
                 _attackPoint.position.y);
         }
     }

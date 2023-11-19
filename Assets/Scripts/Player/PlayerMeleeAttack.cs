@@ -3,8 +3,14 @@ using UnityEngine;
 public class PlayerMeleeAttack : MonoBehaviour
 {
     [SerializeField] private PlayerConfig _playerConfig;
+    private Animator _animator;
     [SerializeField] private LayerMask _enemyLayers;
     [SerializeField] private Transform _attackPoint;
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -16,8 +22,7 @@ public class PlayerMeleeAttack : MonoBehaviour
 
     private void Attack()
     {
-        //Animacja ataku
-
+        _animator.SetTrigger("Attack");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(_attackPoint.position, 
             _playerConfig.attackRange, _enemyLayers);
 
