@@ -610,13 +610,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 587698146}
     m_Modifications:
+    - target: {fileID: 1322820031892747841, guid: e2780445e32ec3e42b459d31f2af7dd8, type: 3}
+      propertyPath: _pointA
+      value: 
+      objectReference: {fileID: 1709444998}
+    - target: {fileID: 1322820031892747841, guid: e2780445e32ec3e42b459d31f2af7dd8, type: 3}
+      propertyPath: _pointB
+      value: 
+      objectReference: {fileID: 518702399}
     - target: {fileID: 4340223943333237880, guid: e2780445e32ec3e42b459d31f2af7dd8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.8065462
       objectReference: {fileID: 0}
     - target: {fileID: 4340223943333237880, guid: e2780445e32ec3e42b459d31f2af7dd8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.3484273
+      value: -0.304
       objectReference: {fileID: 0}
     - target: {fileID: 4340223943333237880, guid: e2780445e32ec3e42b459d31f2af7dd8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -650,14 +658,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4836606505283467762, guid: e2780445e32ec3e42b459d31f2af7dd8, type: 3}
-      propertyPath: _pointA
-      value: 
-      objectReference: {fileID: 1709444998}
-    - target: {fileID: 4836606505283467762, guid: e2780445e32ec3e42b459d31f2af7dd8, type: 3}
-      propertyPath: _pointB
-      value: 
-      objectReference: {fileID: 518702399}
     - target: {fileID: 5813558522764448606, guid: e2780445e32ec3e42b459d31f2af7dd8, type: 3}
       propertyPath: m_Name
       value: Patrick

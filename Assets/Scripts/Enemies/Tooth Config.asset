@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 3
   damage: 1
-  attackRange: 0.4
+  attackRange: 0.3
   attackCooldown: 2
   patrolSpeed: 1
   chaseRange: 3
