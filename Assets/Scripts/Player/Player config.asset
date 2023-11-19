@@ -16,5 +16,5 @@ MonoBehaviour:
   damage: 1
   speed: 4
   jumpForce: 6.5
-  attackRange: 0.4
+  attackRange: 0.55
   groundCheckRadius: 0.1

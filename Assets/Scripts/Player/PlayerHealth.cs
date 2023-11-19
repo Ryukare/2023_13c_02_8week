@@ -4,6 +4,7 @@ public class PlayerHealth : MonoBehaviour
 {
 
     [SerializeField] private PlayerConfig _playerConfig;
+    private Animator _animator;
 
     private int _currentHealthValue;
     private int _currentHealth
@@ -18,6 +19,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Awake()
     {
+        _animator = GetComponent<Animator>();
         PlayerHealthEventSystem.OnPlayerHeal += Heal;
         PlayerHealthEventSystem.OnPlayerHit += TakeDamage;
     }
@@ -55,11 +57,13 @@ public class PlayerHealth : MonoBehaviour
             _currentHealth -= damage;
             if (_currentHealth <= 0)
             {
-                //Animacja œmierci
+                _animator.SetTrigger("DeathHit");
                 Destroy(gameObject);
             }
-            //else
-            //Animacja hita
+            else
+            {
+                _animator.SetTrigger("Hit");
+            }
         }
     }
 }
