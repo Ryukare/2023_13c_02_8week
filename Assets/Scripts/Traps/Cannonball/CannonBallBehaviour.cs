@@ -17,13 +17,26 @@ public class CannonBallBehaviour : MonoBehaviour
     {
         if (!isFalling)
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, _cannonBallConfig.fallRangeY, LayerMask.GetMask("Player"));
+            float coneAngle = 45f;
+            float coneRange = _cannonBallConfig.fallRangeY;
 
-            if (hit.collider != null)
+            // ilosc promieni w stozku
+            int numRays = 10;
+            float angleStep = coneAngle / numRays;
+
+            for (int i = 0; i < numRays; i++)
             {
-                isFalling = true;
-                _rb.bodyType = RigidbodyType2D.Dynamic;
-                Destroy(gameObject, _cannonBallConfig.destroyDelay);
+                float angle = i * angleStep - coneAngle * 0.5f;
+                Vector2 direction = Quaternion.Euler(0, 0, angle) * Vector2.down;
+
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, coneRange, LayerMask.GetMask("Player"));
+
+                if (hit.collider != null)
+                {
+                    isFalling = true;
+                    _rb.bodyType = RigidbodyType2D.Dynamic;
+                    Destroy(gameObject, _cannonBallConfig.destroyDelay);
+                }
             }
         }
     }
