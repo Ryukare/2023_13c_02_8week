@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4753707647573878151}
   - component: {fileID: 8650954425697587998}
   - component: {fileID: 2507950681392173272}
+  - component: {fileID: 542078698782848039}
   m_Layer: 0
   m_Name: Silver Coin
   m_TagString: SilverCoin
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -37764401
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 1276152436, guid: c8c014dcb5b4c054ebf9c8889315fa98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -144,3 +145,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _config: {fileID: 11400000, guid: 10e6d8121fd36634aa45f4f95719f1a7, type: 2}
+--- !u!95 &542078698782848039
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8891380476385391209}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6f9c59a271a056e4d9dbb423e38b2204, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
