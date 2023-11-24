@@ -2879,6 +2879,18 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2814349952651803039, guid: 2060e8aae8774494095d8ce7e276e08b, type: 3}
+      propertyPath: m_XDamping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814349952651803039, guid: 2060e8aae8774494095d8ce7e276e08b, type: 3}
+      propertyPath: m_YDamping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814349952651803039, guid: 2060e8aae8774494095d8ce7e276e08b, type: 3}
+      propertyPath: m_ZDamping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814349952651803039, guid: 2060e8aae8774494095d8ce7e276e08b, type: 3}
       propertyPath: m_DeadZoneWidth
       value: 0.05
       objectReference: {fileID: 0}
