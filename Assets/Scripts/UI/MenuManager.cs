@@ -11,6 +11,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject _mainView;
     [SerializeField] private GameObject _startView;
     [SerializeField] private GameObject _levelView;
+    [SerializeField] private GameObject _scoreView;
 
     [SerializeField] private TMP_InputField playerNameInput;
 
@@ -18,6 +19,7 @@ public class MenuManager : MonoBehaviour
     {
         _mainView.SetActive(true);
         _startView.SetActive(false);
+        _scoreView.SetActive(false);
         _levelView.SetActive(false);
     }
     #region Main view
@@ -37,6 +39,14 @@ public class MenuManager : MonoBehaviour
     }
     #endregion
 
+    #region HighScore view
+    public void HighScoreClicked()
+    {
+        _mainView.SetActive(false);
+        _scoreView.SetActive(true);
+    }
+    #endregion
+
     #region Start view
     public void StartGameClicked()
     {
@@ -50,6 +60,7 @@ public class MenuManager : MonoBehaviour
     {
         _mainView.SetActive(true);
         _startView.SetActive(false);
+        _scoreView.SetActive(false);
     }
     #endregion
 

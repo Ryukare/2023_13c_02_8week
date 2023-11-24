@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -59,7 +58,11 @@ public class PlayerHealth : MonoBehaviour
             if (_currentHealth <= 0)
             {
                 _animator.SetTrigger("DeathHit");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                GameOverManager gameOverManager = FindObjectOfType<GameOverManager>();
+                if (gameOverManager != null)
+                {
+                    gameOverManager.ShowGameOverView();
+                }
             }
             else
             {
