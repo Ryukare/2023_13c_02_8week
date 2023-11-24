@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Oskar's Scene.unity
     guid: 11cae192e3da175488f4bce373af0baa
   - enabled: 1
+    path: Assets/Scenes/Menu/Menu.unity
+    guid: 41a9e2db04fa0e042a918e35f8453a32
+  - enabled: 1
     path: Assets/Scenes/Levels/Tutorial.unity
     guid: c03c2511d855f3d4aade9f8296caaa1b
   - enabled: 1
@@ -20,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Level_Two.unity
     guid: 7dd8d9c46fa1b3c45ba452022e9db9df
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level_Three.unity
+    guid: 84939f51a13885b4b8893fbf9840a17d
   m_configObjects: {}
