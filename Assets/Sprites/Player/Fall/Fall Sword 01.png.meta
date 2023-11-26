@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b09e486588dee614d8b0fabf76e93cb6
+guid: bebf19db5f8ed3249b2aba460a47e4a8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle Sword 02_0
+      name: Fall Sword 01_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 8
-        width: 37
-        height: 27
+        x: 19
+        y: 9
+        width: 38
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f526e7d587bbab44b3eb989cca43514
-      internalID: -1747975204
+      spriteID: 4ab1e549167e8fd49abffab726512d11
+      internalID: 216009690
       vertices: []
       indices: 
       edges: []
@@ -141,7 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Idle Sword 02_0: -1747975204
+      Fall Sword 01_0: 216009690
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
