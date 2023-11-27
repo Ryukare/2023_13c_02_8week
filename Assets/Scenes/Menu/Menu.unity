@@ -310,7 +310,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 640672310306963540, guid: 37bcdec242bce56419d89bf3819fc24e, type: 3}
       propertyPath: m_text
-      value: Game Title
+      value: Treasure Hunters
       objectReference: {fileID: 0}
     - target: {fileID: 2501206796889425473, guid: 37bcdec242bce56419d89bf3819fc24e, type: 3}
       propertyPath: m_Name
@@ -1183,7 +1183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &448954721
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3491,10 +3491,10 @@ RectTransform:
   - {fileID: 26254997}
   m_Father: {fileID: 999607793}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1165.0001, y: -190}
+  m_SizeDelta: {x: 710.00006, y: 380}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1108274290
 GameObject:
@@ -6759,10 +6759,10 @@ RectTransform:
   - {fileID: 1577297389}
   m_Father: {fileID: 999607793}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 355.00003, y: -190}
+  m_SizeDelta: {x: 710.00006, y: 380}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1991138924
 GameObject:
