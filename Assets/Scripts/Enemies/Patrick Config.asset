@@ -17,5 +17,5 @@ MonoBehaviour:
   attackRange: 0.3
   attackCooldown: 2
   patrolSpeed: 0.7
-  chaseRange: 6
+  chaseRange: 4
   chaseSpeed: 1.4
