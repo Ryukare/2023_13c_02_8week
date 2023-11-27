@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace UI {
     public class HUDManager : MonoBehaviour {
-        [SerializeField] private TMP_Text _playerHealth;
         [SerializeField] private TMP_Text _score;
         [SerializeField] private TMP_Text _silverCoins;
         private int _levelSilverCoinAmount;
@@ -13,7 +12,6 @@ namespace UI {
         private int _levelDiamondAmount;
 
         private void Awake() {
-            PlayerHealthEventSystem.OnPlayerHealthUpdate += UpdatePlayerHealth;
             ScoreEventSystem.OnScoreUpdate += UpdateScore;
             ScoreEventSystem.OnSilverCoinAmountUpdate += UpdateSilverCoinAmount;
             ScoreEventSystem.OnGoldCoinAmountUpdate += UpdateGoldCoinAmount;
@@ -28,16 +26,12 @@ namespace UI {
         }
 
         private void OnDestroy() {
-            PlayerHealthEventSystem.OnPlayerHealthUpdate -= UpdatePlayerHealth;
             ScoreEventSystem.OnScoreUpdate -= UpdateScore;
             ScoreEventSystem.OnSilverCoinAmountUpdate -= UpdateSilverCoinAmount;
             ScoreEventSystem.OnGoldCoinAmountUpdate -= UpdateGoldCoinAmount;
             ScoreEventSystem.OnDiamondAmountUpdate -= UpdateDiamondAmount;
         }
 
-        private void UpdatePlayerHealth(int currentHealth) {
-            _playerHealth.text = $"Health: {currentHealth}";
-        }
         private void UpdateScore(int currentScore)
         {
             _score.text = $"Score: {currentScore}";
