@@ -235,8 +235,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.057916343}
-  m_Size: {x: 0.5, y: 0.88583267}
+  m_Offset: {x: -0.206, y: 0.00968805}
+  m_Size: {x: 0.502701, y: 0.86645657}
   m_Direction: 0
 --- !u!50 &3690395326621920777
 Rigidbody2D:
@@ -425,7 +425,7 @@ Transform:
   m_GameObject: {fileID: 5831448464141361115}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.307, z: 0}
+  m_LocalPosition: {x: -0.2062, y: -0.407, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -457,7 +457,7 @@ Transform:
   m_GameObject: {fileID: 7163207030464910131}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.251, y: -0.024, z: 0}
+  m_LocalPosition: {x: 0.047, y: -0.024, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
