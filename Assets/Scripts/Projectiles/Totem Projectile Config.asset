@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dd49438ed2c8d64cb4d1299094eb023, type: 3}
   m_Name: Totem Projectile Config
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 4
   damage: 1
