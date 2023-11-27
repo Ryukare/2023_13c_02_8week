@@ -1,10 +1,9 @@
 #if UNITY_EDITOR
 using UnityEditor;
+using TMPro;
 #endif
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
-
 
 public class MenuManager : MonoBehaviour
 {
@@ -12,6 +11,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject _startView;
     [SerializeField] private GameObject _levelView;
     [SerializeField] private GameObject _scoreView;
+    [SerializeField] private GameObject _howView;
 
     [SerializeField] private TMP_InputField playerNameInput;
 
@@ -21,6 +21,7 @@ public class MenuManager : MonoBehaviour
         _startView.SetActive(false);
         _scoreView.SetActive(false);
         _levelView.SetActive(false);
+        _howView.SetActive(false);
     }
     #region Main view
     public void StartClicked()
@@ -47,6 +48,14 @@ public class MenuManager : MonoBehaviour
     }
     #endregion
 
+    #region HowToPlay view
+    public void HowClicked()
+    {
+        _mainView.SetActive(false);
+        _howView.SetActive(true);
+    }
+    #endregion
+
     #region Start view
     public void StartGameClicked()
     {
@@ -61,6 +70,7 @@ public class MenuManager : MonoBehaviour
         _mainView.SetActive(true);
         _startView.SetActive(false);
         _scoreView.SetActive(false);
+        _howView.SetActive(false);
     }
     #endregion
 
