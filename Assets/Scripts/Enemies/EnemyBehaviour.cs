@@ -17,43 +17,54 @@ public class EnemyBehaviour : MonoBehaviour
 
     [SerializeField] private LayerMask _playerLayer;
     private Transform _player;
+    private bool _isPlayerAlive;
 
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
+        PlayerHealthEventSystem.OnPlayerDeath += DisableEnemy;
     }
-    void Start()
+    private void Start()
     {
         _currentDestination = _pointA.transform;
         _player = GameObject.FindGameObjectWithTag("Player").transform;
+        _isPlayerAlive = true;
     }
 
-    void Update()
+    private void OnDestroy()
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, _player.position);
+        PlayerHealthEventSystem.OnPlayerDeath -= DisableEnemy;
+    }
 
-        if (distanceToPlayer <= _config.chaseRange)
+    private void Update()
+    {
+        if (_isPlayerAlive)
         {
-            _animator.SetBool("PlayerSpotted", true);
-            distanceToPlayer = Vector2.Distance(_attackPoint.position, _player.position);
-            if (distanceToPlayer <= _config.attackRange)
+            float distanceToPlayer = Vector2.Distance(transform.position, _player.position);
+
+            if (distanceToPlayer <= _config.chaseRange)
             {
-                if (Time.time - _lastAttackTime >= _config.attackCooldown)
+                _animator.SetBool("PlayerSpotted", true);
+                distanceToPlayer = Vector2.Distance(_attackPoint.position, _player.position);
+                if (distanceToPlayer <= _config.attackRange)
                 {
-                    _animator.SetTrigger("Attack");
-                    Attack();
+                    if (Time.time - _lastAttackTime >= _config.attackCooldown)
+                    {
+                        _animator.SetTrigger("Attack");
+                        Attack();
+                    }
+                }
+                else
+                {
+                    Chase();
                 }
             }
             else
             {
-                Chase();
+                _animator.SetBool("PlayerSpotted", false);
+                Patrol();
             }
-        }
-        else
-        {
-            _animator.SetBool("PlayerSpotted", false);
-            Patrol();
         }
     }
 
@@ -116,6 +127,11 @@ public class EnemyBehaviour : MonoBehaviour
         }
 
         _lastAttackTime = Time.time;
+    }
+
+    private void DisableEnemy()
+    {
+        _isPlayerAlive = false;
     }
 
     private void OnDrawGizmosSelected()

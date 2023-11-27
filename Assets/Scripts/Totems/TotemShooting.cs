@@ -12,15 +12,23 @@ public class TotemShooting : MonoBehaviour
     [SerializeField] private GameObject _projectile;
 
     private Transform _player;
+    private bool _isPlayerAlive;
 
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        PlayerHealthEventSystem.OnPlayerDeath += DisableTotem;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerHealthEventSystem.OnPlayerDeath -= DisableTotem;
     }
 
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player").transform;
+        _isPlayerAlive = true;
 
         if (_player == null)
         {
@@ -53,18 +61,26 @@ public class TotemShooting : MonoBehaviour
     }
     private void Shoot(Vector2 direction)
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, _player.position);
-        if (distanceToPlayer <= _totemConfig.shootRangeX)
+        if (_isPlayerAlive)
         {
-            Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y + _totemConfig.spawnOffsetY);
-            GameObject projectile = Instantiate(_projectile, spawnPosition, transform.rotation);
-
-            // dostep do skryptu z projectile
-            ProjectileBehaviour projectileScript = projectile.GetComponent<ProjectileBehaviour>();
-            if (projectileScript != null)
+            float distanceToPlayer = Vector2.Distance(transform.position, _player.position);
+            if (distanceToPlayer <= _totemConfig.shootRangeX)
             {
-                projectileScript.SetDirection(direction);
+                Vector2 spawnPosition = new Vector2(transform.position.x, transform.position.y + _totemConfig.spawnOffsetY);
+                GameObject projectile = Instantiate(_projectile, spawnPosition, transform.rotation);
+
+                ProjectileBehaviour projectileScript = projectile.GetComponent<ProjectileBehaviour>();
+                if (projectileScript != null)
+                {
+                    projectileScript.SetDirection(direction);
+                }
             }
         }
     }
+
+    private void DisableTotem()
+    {
+        _isPlayerAlive = false;
+    }
+
 }

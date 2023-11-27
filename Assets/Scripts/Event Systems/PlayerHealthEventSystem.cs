@@ -5,6 +5,7 @@ public static class PlayerHealthEventSystem
     public static event Action<int> OnPlayerHealthUpdate;
     public static event Action<int> OnPlayerHeal;
     public static event Action<int> OnPlayerHit;
+    public static event Action OnPlayerDeath;
 
     public static void UpdatePlayerHealth(int currentHealthAmount)
     {
@@ -17,5 +18,9 @@ public static class PlayerHealthEventSystem
     public static void HitPlayer(int damage)
     {
         OnPlayerHit?.Invoke(damage);
+    }
+    public static void KillPlayer()
+    {
+        OnPlayerDeath?.Invoke();
     }
 }

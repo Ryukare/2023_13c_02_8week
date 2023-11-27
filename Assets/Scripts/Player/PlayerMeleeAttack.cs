@@ -7,17 +7,33 @@ public class PlayerMeleeAttack : MonoBehaviour
     [SerializeField] private LayerMask _enemyLayers;
     [SerializeField] private Transform _attackPoint;
 
+    private bool _isPlayerAlive;
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        PlayerHealthEventSystem.OnPlayerDeath += DisableAttack;
+    }
+
+    private void Start()
+    {
+        _isPlayerAlive = true;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerHealthEventSystem.OnPlayerDeath -= DisableAttack;
     }
 
     private void Update()
     {
-        if (Input.GetButtonDown("Attack"))
+        if (_isPlayerAlive)
         {
-            Attack();
-        }
+            if (Input.GetButtonDown("Attack"))
+            {
+                Attack();
+            }
+        } 
     }
 
     private void Attack()
@@ -31,6 +47,11 @@ public class PlayerMeleeAttack : MonoBehaviour
             EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
             enemyHealth.TakeDamage(_playerConfig.damage);
         }
+    }
+
+    private void DisableAttack()
+    {
+        _isPlayerAlive = false;
     }
 
     private void OnDrawGizmosSelected()

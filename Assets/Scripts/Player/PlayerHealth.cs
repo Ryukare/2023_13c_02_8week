@@ -58,6 +58,7 @@ public class PlayerHealth : MonoBehaviour
             if (_currentHealth <= 0)
             {
                 _animator.SetTrigger("DeathHit");
+                PlayerHealthEventSystem.KillPlayer();
                 GameOverManager gameOverManager = FindObjectOfType<GameOverManager>();
                 if (gameOverManager != null)
                 {

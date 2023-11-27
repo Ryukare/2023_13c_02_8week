@@ -21,20 +21,36 @@ public class PlayerMovement : MonoBehaviour
     private bool _isGrounded;
     private int _jumps = 0;
 
+    private bool _isPlayerAlive;
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
+        PlayerHealthEventSystem.OnPlayerDeath += DisableMovement;
+    }
+
+    private void Start()
+    {
+        _isPlayerAlive = true;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerHealthEventSystem.OnPlayerDeath -= DisableMovement;
     }
 
     private void Update()
     {
-        _xInput = Input.GetAxis("Horizontal");
-
-        if (Input.GetButtonDown("Jump") && _jumps < 3)
+        if (_isPlayerAlive)
         {
-            _performJump = true;
+            _xInput = Input.GetAxis("Horizontal");
+
+            if (Input.GetButtonDown("Jump") && _jumps < 3)
+            {
+                _performJump = true;
+            }
         }
     }
 
@@ -96,6 +112,11 @@ public class PlayerMovement : MonoBehaviour
             _attackPoint.position = new Vector2(transform.position.x - GetComponent<CapsuleCollider2D>().size.x,
                 _attackPoint.position.y);
         }
+    }
+
+    private void DisableMovement()
+    {
+        _isPlayerAlive = false;
     }
 
     private void OnDrawGizmosSelected()
