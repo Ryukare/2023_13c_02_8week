@@ -15,6 +15,6 @@ MonoBehaviour:
   MaxHealth: 5
   damage: 1
   speed: 4
-  jumpForce: 9
+  jumpForce: 9.5
   attackRange: 0.55
   groundCheckRadius: 0.1
