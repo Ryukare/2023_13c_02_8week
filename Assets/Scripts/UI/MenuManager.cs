@@ -60,7 +60,6 @@ public class MenuManager : MonoBehaviour
     public void StartGameClicked()
     {
         string playerName = playerNameInput.text;
-        Debug.Log("Player Name: " + playerName);
 
         _startView.SetActive(false);
         _levelView.SetActive(true);
