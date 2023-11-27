@@ -13,7 +13,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject _scoreView;
     [SerializeField] private GameObject _howView;
 
-    [SerializeField] private TMP_InputField playerNameInput;
+    //[SerializeField] private TMP_InputField playerNameInput;
 
     private void Awake()
     {
@@ -27,7 +27,8 @@ public class MenuManager : MonoBehaviour
     public void StartClicked()
     {
         _mainView.SetActive(false);
-        _startView.SetActive(true);
+        //_startView.SetActive(true);
+        _levelView.SetActive(true);
     }
 
     public void ExitClicked()
@@ -59,7 +60,7 @@ public class MenuManager : MonoBehaviour
     #region Start view
     public void StartGameClicked()
     {
-        string playerName = playerNameInput.text;
+        //string playerName = playerNameInput.text;
 
         _startView.SetActive(false);
         _levelView.SetActive(true);

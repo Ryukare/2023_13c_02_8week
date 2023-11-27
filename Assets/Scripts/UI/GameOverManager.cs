@@ -10,23 +10,23 @@ public class GameOverManager : MonoBehaviour
     [SerializeField] private GameObject _healthView;
     [SerializeField] private GameObject _scoreGroupView;
     [SerializeField] private GameObject _gameoverView;
-    [SerializeField] private TMP_Text _score;
+/*    [SerializeField] private TMP_Text _score;*/
 
     private void Awake()
     {
         _healthView.SetActive(true);
         _scoreGroupView.SetActive(true);
         _gameoverView.SetActive(false);
-        ScoreEventSystem.OnScoreUpdate += UpdateScore;
+/*        ScoreEventSystem.OnScoreUpdate += UpdateScore;*/
     }
-    private void OnDestroy()
+/*    private void OnDestroy()
     {
         ScoreEventSystem.OnScoreUpdate -= UpdateScore;
     }
     private void UpdateScore(int currentScore)
     {
         _score.text = $"Score: {currentScore}";
-    }
+    }*/
     public void ShowGameOverView()
     {
         _healthView.SetActive(false);
